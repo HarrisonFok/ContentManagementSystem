@@ -38,18 +38,23 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
     
     @Override
     public boolean removeTagFromBlog(BlogTags bTag){
-        throw new UnsupportedOperationException();
+       // Remove a BlogTag in the BlogTag table
+        final String sql = "DELETE FROM BlogTags WHERE (blogID = ? AND tagID = ?)";
+        return jdbc.update(sql, bTag.getBlogID(),bTag.getTagID()) > 0;
 
     }
     
     @Override
     public List<Blog> getAllBlogsWithTag(int tagID){
-        throw new UnsupportedOperationException();
+        final String sql = "SELECT * FROM Blog WHERE tagID = ?";
+        return jdbc.query(sql, new BlogMapper(), tagID);
     }
     
     @Override
     public List<Tag> getAllTagsForBlog(int blogID){
-        throw new UnsupportedOperationException();
+        final String sql = "SELECT tagID FROM BlogTags WHERE blogID = ?";
+        
+        return jdbc.query(sql, new TagMapper(), blogID);
         
     }
     
@@ -61,6 +66,38 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
             newBlogTag.setBlogID(rs.getInt("blogID"));
             newBlogTag.setTagID(rs.getInt("tagID"));
             return newBlogTag;
+        }
+        
+    }
+    
+    private static final class BlogMapper implements RowMapper<Blog> {
+
+        @Override
+        public Blog mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Blog newBlog = new Blog();
+            newBlog.setBlogID(rs.getInt("blogID"));
+            newBlog.setTitle(rs.getString("title"));
+            newBlog.setContent(rs.getString("content"));
+            newBlog.setUserID(rs.getInt("userID"));
+            newBlog.setVisible(rs.getBoolean("visible"));
+            newBlog.setDatePosted(rs.getDate("datePosted").toLocalDate());
+            newBlog.setDateExpires(rs.getDate("dateExpires").toLocalDate());
+            newBlog.setLikes(rs.getInt("likes"));
+            newBlog.setDislikes(rs.getInt("dislikes"));
+            return newBlog;
+        }
+        
+    }
+    
+    private static final class TagMapper implements RowMapper<Tag> {
+
+        @Override
+        public Tag mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Tag tag = new Tag();
+            tag.setTagID(rs.getInt("tagID"));
+            tag.setHashTag(rs.getString("hashTag"));
+            
+            return tag;
         }
         
     }

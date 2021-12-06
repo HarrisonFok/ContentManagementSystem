@@ -58,7 +58,7 @@ public class DaoBlogImpl implements DaoBlog{
     //Get blog by id
     @Override
     public Blog getBlog(int blogID){
-        final String GET_BLOG = "SELECT * FOM Blog WHERE blogID = ?";
+        final String GET_BLOG = "SELECT * FOM Blogs WHERE blogID = ?";
         return jdbc.queryForObject(GET_BLOG, new BlogMapper(), blogID);
     }
     
@@ -67,15 +67,15 @@ public class DaoBlogImpl implements DaoBlog{
 //                + "visible, datePosted, dateExpires, likes, dislikes
     @Override
     public boolean updateBlog(Blog blog){
-        final String sql = "UPDATE Blog SET"
-                + "title = ?"
-                + "content = ?"
-                + "userID = ?"
-                + "visible = ?"
-                + "datePosted = ?"
-                + "dateExpires = ?"
-                + "likes = ?"
-                + "dislikes = ?"
+        final String sql = "UPDATE Blogs SET"
+                + "title = ?,"
+                + "content = ?,"
+                + "userID = ?,"
+                + "visible = ?,"
+                + "datePosted = ?,"
+                + "dateExpires = ?,"
+                + "likes = ?,"
+                + "dislikes = ?,"
                 + "WHERE blogID = ?";
         return jdbc.update(sql,
                 blog.getTitle(),
@@ -90,19 +90,19 @@ public class DaoBlogImpl implements DaoBlog{
     
     @Override
     public boolean removeBlog(int blogID){
-        final String DELETE_BLOG = "DELETE FROM Blog WHERE blogID = ?";
+        final String DELETE_BLOG = "DELETE FROM Blogs WHERE blogID = ?";
         return jdbc.update(DELETE_BLOG, blogID) > 0;
     }
     
     @Override
     public List<Blog> getAllBlogs(){
-        final String GET_ALL_BLOGS = "SELECT * FROM Blog";
+        final String GET_ALL_BLOGS = "SELECT * FROM Blogs";
         return jdbc.query(GET_ALL_BLOGS, new BlogMapper());
     }
     
     @Override
     public List<Blog> getBlogsByUser(int userID){
-        final String GET_ALL_BLOGS_BY_USER = "SELECT * FROM Blog WHERE userID = ?";
+        final String GET_ALL_BLOGS_BY_USER = "SELECT * FROM Blogs WHERE userID = ?";
         return jdbc.query(GET_ALL_BLOGS_BY_USER, new BlogMapper(), userID);
     }
     
