@@ -62,6 +62,8 @@ public class DaoBlogImpl implements DaoBlog{
         return jdbc.queryForObject(GET_BLOG, new BlogMapper(), blogID);
     }
     
+    
+    
     //update a blog useing id
 //    blogID, title, content, userID, "
 //                + "visible, datePosted, dateExpires, likes, dislikes

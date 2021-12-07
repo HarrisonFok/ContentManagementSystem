@@ -191,9 +191,41 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     //=====Business Logic Methods=====
     
-     @Override
+    @Override
     public List<Blog> getBlogsByVisibility(boolean visible){
         throw new UnsupportedOperationException();
+    }
+    
+    @Override
+    public boolean validUserIDForBlog(int userID, int blogID){
+        if(userID == blogID){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean checkAccessPrivilegeAdmin(User user){
+        if(user.getUserRole().equalsIgnoreCase("admin")){
+            return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean checkAccessPrivilegeAssistant(User user){
+        if(user.getUserRole().equalsIgnoreCase("assistant")){
+            return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean isVisible(Blog blog){
+        if(blog.isVisible()){
+            return true;
+        }
+        return false;
     }
     
 }

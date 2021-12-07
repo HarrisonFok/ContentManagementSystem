@@ -63,4 +63,8 @@ public interface ServiceLayer {
     //====Business Logic Methods====
     
     public List<Blog> getBlogsByVisibility(boolean visible);
+    public boolean validUserIDForBlog(int userID, int blogID);
+    public boolean checkAccessPrivilegeAdmin(User user);
+    public boolean checkAccessPrivilegeAssistant(User user);
+    public boolean isVisible(Blog blog);
 }
