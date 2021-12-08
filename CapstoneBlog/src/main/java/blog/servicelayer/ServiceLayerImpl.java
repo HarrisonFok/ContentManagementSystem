@@ -170,23 +170,23 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     @Override
     public User addUser(User user){
-        throw new UnsupportedOperationException();
+        return daoUser.addUser(user);
     }
     @Override
     public User getUser(int user){
-        throw new UnsupportedOperationException();
+        return daoUser.getUser(user);
     }
     @Override
     public boolean updateUser(User user){
-        throw new UnsupportedOperationException();
+        return daoUser.updateUser(user);
     }
     @Override
     public boolean removeUser(int user){
-        throw new UnsupportedOperationException();
+        return daoUser.removeUser(user);
     }
     @Override
     public List<User> getAllUsers(){
-        throw new UnsupportedOperationException();
+        return daoUser.getAllUsers();
     }
     
     //=====Business Logic Methods=====
