@@ -116,64 +116,89 @@ public class ControllerAdmin {
     
     @DeleteMapping("/tag/delete/blogtag")
     public ResponseEntity<Object> removeTagFromBlog(int blogID, int tagID){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTagsForBlog(blogID).contains(service.getTag(tagID))) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.removeTagFromBlog(new BlogTags(blogID, tagID))) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @GetMapping("/tag/get/all/tagsforblog")
     public List<Tag> getAllTagsForBlog(int blogID){
-        throw new UnsupportedOperationException();
+        return service.getAllTagsForBlog(blogID);
     }
     
     @PutMapping("/tag/add")
     public BlogTags addTag(@RequestBody BlogTags bTag){
-        throw new UnsupportedOperationException();
+        return service.addTag(bTag);
     }
     
     @GetMapping("/tag/get")
     public Tag getTag(int tagID){
-        throw new UnsupportedOperationException();
+        return service.getTag(tagID);
     }
     
     @PutMapping("/tag/update")
     public ResponseEntity<Object> updateTag(@RequestBody Tag tag){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTags().contains(tag)) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.updateTag(tag)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @DeleteMapping("/tag/delete")
     public ResponseEntity<Object> deleteTag(int tagID){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTags().contains(service.getTag(tagID))) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.removeTag(tagID)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @GetMapping("/tag/get/all/tags")
     public List<Tag> getAllTags(){
-        throw new UnsupportedOperationException();
+        return service.getAllTags();
     }
     
     //===== User Related Methods =====
     
     @PostMapping("/user/add")
     public User addUser(@RequestBody User user){
-        throw new UnsupportedOperationException();
+        User newUser = new User();
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setUserName(user.getUserName());
+        newUser.setUserPassword(user.getUserPassword());
+        newUser.setUserRole(user.getUserRole());
+        return service.addUser(newUser);
     }
     
     @GetMapping("/user/get")
     public User getUser(int user){
-        throw new UnsupportedOperationException();
+        return service.getUser(user);
     }
     
     @PutMapping("/user/update")
     public ResponseEntity<Object> updateUser(@RequestBody User user){
-        throw new UnsupportedOperationException();
+        service.updateUser(user);
+        return ResponseHandler.generateResponse("Successfully updated user!", HttpStatus.CREATED, user);
     }
     
     @DeleteMapping("/user/delete")
     public ResponseEntity<Object> removeUser(int userID){
-        throw new UnsupportedOperationException();
+        if (service.removeUser(userID)) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     
     @GetMapping("/user/get/all")
     public List<User> getAllUsers(){
-        throw new UnsupportedOperationException();
+        return service.getAllUsers();
     }
     
 }
