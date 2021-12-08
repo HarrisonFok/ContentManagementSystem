@@ -142,27 +142,37 @@ public class ControllerAdmin {
     
     @PostMapping("/user/add")
     public User addUser(@RequestBody User user){
-        throw new UnsupportedOperationException();
+        User newUser = new User();
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setUserName(user.getUserName());
+        newUser.setUserPassword(user.getUserPassword());
+        newUser.setUserRole(user.getUserRole());
+        return service.addUser(newUser);
     }
     
     @GetMapping("/user/get")
     public User getUser(int user){
-        throw new UnsupportedOperationException();
+        return service.getUser(user);
     }
     
     @PutMapping("/user/update")
     public ResponseEntity<Object> updateUser(@RequestBody User user){
-        throw new UnsupportedOperationException();
+        service.updateUser(user);
+        return ResponseHandler.generateResponse("Successfully updated user!", HttpStatus.CREATED, user);
     }
     
     @DeleteMapping("/user/delete")
     public ResponseEntity<Object> removeUser(int userID){
-        throw new UnsupportedOperationException();
+        if (service.removeUser(userID)) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     
     @GetMapping("/user/get/all")
     public List<User> getAllUsers(){
-        throw new UnsupportedOperationException();
+        return service.getAllUsers();
     }
     
 }
