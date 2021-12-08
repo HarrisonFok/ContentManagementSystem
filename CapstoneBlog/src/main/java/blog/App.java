@@ -1,5 +1,3 @@
-package blog;
-
 /*
 *   Joshua Martel
 *   jophmartel@gmail.com
@@ -7,7 +5,7 @@ package blog;
 *
 */
 
-
+package blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
