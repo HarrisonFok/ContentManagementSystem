@@ -46,7 +46,7 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
     
     @Override
     public List<Blog> getAllBlogsWithTag(int tagID){
-        final String sql = "SELECT * FROM Blog WHERE tagID = ?";
+        final String sql = "SELECT * FROM blogs INNER JOIN blogstags ON blogstags.blogid = blogs.blogid WHERE tagID = ?";
         return jdbc.query(sql, new BlogMapper(), tagID);
     }
     
@@ -80,7 +80,7 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
             newBlog.setContent(rs.getString("content"));
             newBlog.setUserID(rs.getInt("userID"));
             newBlog.setVisible(rs.getBoolean("visible"));
-            newBlog.setDatePosted(rs.getDate("datePosted").toLocalDate());
+            newBlog.setDatePosted(rs.getDate("datePost").toLocalDate());
             newBlog.setDateExpires(rs.getDate("dateExpires").toLocalDate());
             newBlog.setLikes(rs.getInt("likes"));
             newBlog.setDislikes(rs.getInt("dislikes"));
