@@ -98,11 +98,11 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     @Override
     public BlogTags addTag(BlogTags bTag){
-        throw new UnsupportedOperationException();
+        return daoBlogTags.addTag(bTag);
     }
     @Override
     public boolean removeTagFromBlog(BlogTags bTag){
-        throw new UnsupportedOperationException();
+        return daoBlogTags.removeTagFromBlog(bTag);
         
     }
     @Override
@@ -147,23 +147,23 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     @Override
     public Tag addTag(Tag tag){
-       throw new UnsupportedOperationException();
+       return daoTag.addTag(tag);
     }
     @Override
     public Tag getTag(int tagID){
-        throw new UnsupportedOperationException();
+        return daoTag.getTag(tagID);
     }
     @Override
     public boolean updateTag(Tag tag){
-        throw new UnsupportedOperationException();
+        return daoTag.updateTag(tag);
     }
     @Override
     public boolean removeTag(int tagID){
-        throw new UnsupportedOperationException();
+        return daoTag.removeTag(tagID);
     }
     @Override
     public List<Tag> getAllTags(){
-        throw new UnsupportedOperationException();
+        return daoTag.getAllTags();
     }
     
     //====User Pass-Through Methods====

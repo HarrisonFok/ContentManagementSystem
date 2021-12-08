@@ -103,10 +103,20 @@ public class ControllerAdmin {
         return service.getAllTagsForBlog(blogID);
     }
     
-    @PutMapping("/tag/add")
+    @PostMapping("/tag/add/blogTag")
     public BlogTags addTag(@RequestBody BlogTags bTag){
-        return service.addTag(bTag);
+        if(service.getAllTags().contains(service.getTag(bTag.getTagID()))
+                && service.getAllBlogs().contains(service.getBlog(bTag.getBlogID())))   {
+            return service.addTag(bTag);
+        }
+        return null;
     }
+
+    @PostMapping("/tag/add/tag")
+    public Tag addHashTag(@RequestBody Tag tag){
+        return service.addTag(tag);
+    }
+
     
     @GetMapping("/tag/get")
     public Tag getTag(int tagID){
@@ -133,7 +143,7 @@ public class ControllerAdmin {
         return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
-    @GetMapping("/tag/get/all/tags")
+    @GetMapping("/tag/get/all")
     public List<Tag> getAllTags(){
         return service.getAllTags();
     }
