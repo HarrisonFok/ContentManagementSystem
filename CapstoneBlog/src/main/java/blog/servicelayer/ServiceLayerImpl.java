@@ -118,29 +118,28 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     @Override
     public Comment addCommment(Comment comment){
-        throw new UnsupportedOperationException();
+        return daoComment.addCommment(comment);
     }
     @Override
     public Comment getComment(int commentID){
-        throw new UnsupportedOperationException();
+        return daoComment.getComment(commentID);
     }
     @Override
     public boolean updateComment(Comment comment){
-        throw new UnsupportedOperationException();
+        return daoComment.updateComment(comment);
         
     }
     @Override
     public boolean removeComment(int commentID){
-       throw new UnsupportedOperationException();
-        
+       return daoComment.removeComment(commentID);
     }
     @Override
     public List<Comment> getCommentsByUser(int userID){
-        throw new UnsupportedOperationException();
+        return daoComment.getCommentsByUser(userID);
     }
     @Override
     public List<Comment> getCommentsByBlog(int blogID){
-       throw new UnsupportedOperationException();
+       return daoComment.getCommentsByBlog(blogID);
     }
     
     //====Tag Pass-Through Methods====
@@ -170,23 +169,23 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     @Override
     public User addUser(User user){
-        throw new UnsupportedOperationException();
+        return daoUser.addUser(user);
     }
     @Override
     public User getUser(int user){
-        throw new UnsupportedOperationException();
+        return daoUser.getUser(user);
     }
     @Override
     public boolean updateUser(User user){
-        throw new UnsupportedOperationException();
+        return daoUser.updateUser(user);
     }
     @Override
     public boolean removeUser(int user){
-        throw new UnsupportedOperationException();
+        return daoUser.removeUser(user);
     }
     @Override
     public List<User> getAllUsers(){
-        throw new UnsupportedOperationException();
+        return daoUser.getAllUsers();
     }
     
     //=====Business Logic Methods=====

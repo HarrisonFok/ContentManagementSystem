@@ -15,6 +15,7 @@ import blog.servicelayer.ServiceLayerImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -126,27 +127,37 @@ public class ControllerAdmin {
     
     @PostMapping("/user/add")
     public User addUser(@RequestBody User user){
-        throw new UnsupportedOperationException();
+        User newUser = new User();
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setUserName(user.getUserName());
+        newUser.setUserPassword(user.getUserPassword());
+        newUser.setUserRole(user.getUserRole());
+        return service.addUser(newUser);
     }
     
     @GetMapping("/user/get")
     public User getUser(int user){
-        throw new UnsupportedOperationException();
+        return service.getUser(user);
     }
     
     @PutMapping("/user/update")
     public ResponseEntity<Object> updateUser(@RequestBody User user){
-        throw new UnsupportedOperationException();
+        service.updateUser(user);
+        return ResponseHandler.generateResponse("Successfully updated user!", HttpStatus.CREATED, user);
     }
     
     @DeleteMapping("/user/delete")
     public ResponseEntity<Object> removeUser(int userID){
-        throw new UnsupportedOperationException();
+        if (service.removeUser(userID)) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     
     @GetMapping("/user/get/all")
     public List<User> getAllUsers(){
-        throw new UnsupportedOperationException();
+        return service.getAllUsers();
     }
     
 }
