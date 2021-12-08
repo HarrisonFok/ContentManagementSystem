@@ -15,6 +15,7 @@ import blog.servicelayer.ServiceLayerImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -89,37 +90,52 @@ public class ControllerAdmin {
     
     @DeleteMapping("/tag/delete/blogtag")
     public ResponseEntity<Object> removeTagFromBlog(int blogID, int tagID){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTagsForBlog(blogID).contains(service.getTag(tagID))) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.removeTagFromBlog(new BlogTags(blogID, tagID))) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @GetMapping("/tag/get/all/tagsforblog")
     public List<Tag> getAllTagsForBlog(int blogID){
-        throw new UnsupportedOperationException();
+        return service.getAllTagsForBlog(blogID);
     }
     
     @PutMapping("/tag/add")
     public BlogTags addTag(@RequestBody BlogTags bTag){
-        throw new UnsupportedOperationException();
+        return service.addTag(bTag);
     }
     
     @GetMapping("/tag/get")
     public Tag getTag(int tagID){
-        throw new UnsupportedOperationException();
+        return service.getTag(tagID);
     }
     
     @PutMapping("/tag/update")
     public ResponseEntity<Object> updateTag(@RequestBody Tag tag){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTags().contains(tag)) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.updateTag(tag)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @DeleteMapping("/tag/delete")
     public ResponseEntity<Object> deleteTag(int tagID){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTags().contains(service.getTag(tagID))) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.removeTag(tagID)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @GetMapping("/tag/get/all/tags")
     public List<Tag> getAllTags(){
-        throw new UnsupportedOperationException();
+        return service.getAllTags();
     }
     
     //===== User Related Methods =====

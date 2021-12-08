@@ -5,7 +5,7 @@
 *
 */
 
-package blog.app;
+package blog;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
