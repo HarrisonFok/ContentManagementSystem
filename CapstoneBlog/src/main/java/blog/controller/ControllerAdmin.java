@@ -12,11 +12,9 @@ import blog.dto.BlogTags;
 import blog.dto.Tag;
 import blog.dto.User;
 import blog.servicelayer.ServiceLayerImpl;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,71 +42,46 @@ public class ControllerAdmin {
     }
     
     //===== Blog Related Methods =====
-    // -- noel
     
-    
-    //works
     @PostMapping("/blog/new")
     public ResponseEntity<Object> addBlog(@RequestBody Blog newBlog){
-        service.addBlog(newBlog);
-        return new ResponseEntity(HttpStatus.OK);
+        throw new UnsupportedOperationException();
     }
     
-    //works
     @GetMapping("/blog/get/{blogID}")
     public Blog getBlog(@PathVariable int blogID){
-        return service.getBlog(blogID);
+        throw new UnsupportedOperationException();
     }
     
-    //works
     @PutMapping("/blog/update/{blogID}")
     public ResponseEntity<Object> updateBlog(@PathVariable int blogID,
             @RequestBody Blog blog){
-            blog.setBlogID(blogID);
-            boolean blogUpdated = service.updateBlog(blog);
-            if(blogUpdated){
-                return new ResponseEntity(HttpStatus.OK);
-            }
-            else{
-                return new ResponseEntity(HttpStatus.NOT_FOUND);
-            }
-        
+        throw new UnsupportedOperationException();
     }
     
-    //works
     @DeleteMapping("/blog/delete/{blogID}")
     public ResponseEntity<Object> deleteBlog(@PathVariable int blogID){
-        boolean blogRemoved = service.removeBlog(blogID);
-        if(blogRemoved){
-            return new ResponseEntity(HttpStatus.OK);
-        }
-        else{
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
+        throw new UnsupportedOperationException();
     }
     
-    //works
     @GetMapping("/blog/get/blogs/all")
     public List<Blog> getAllBlogs(){
-        return service.getAllBlogs();
+        throw new UnsupportedOperationException();
     }
     
-    //works
     @GetMapping("/blog/get/blogs/all/byuser/{userID}")
     public List<Blog> getBlogsByUser(@PathVariable int userID){
-        return service.getBlogsByUser(userID);
+        throw new UnsupportedOperationException();
     }
     
-    //works
     @GetMapping("/blog/get/blogs/all/byvisibility/{visible}")
     public List<Blog> getBlogsByVisibility(@PathVariable boolean visible){
-        return service.getBlogsByVisibility(visible);
+        throw new UnsupportedOperationException();
     }
     
-    //works
-    @GetMapping("/blog/get/blogs/all/bytag/{tagID}")
-    public List<Blog> getAllBlogsWithTag(@PathVariable int tagID){
-        return service.getAllBlogsWithTag(tagID);
+    @GetMapping("/blog/get/blogs/all/bytag")
+    public List<Blog> getAllBlogsWithTag(int tagID){
+        throw new UnsupportedOperationException();
     }
     
     

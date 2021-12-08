@@ -33,9 +33,9 @@ public class DaoBlogImpl implements DaoBlog{
     
     @Override
     public Blog addBlog(Blog newBlog){
-        final String sql = "INSERT INTO Blogs(title, content, userID, "
-                + "visible, datePost, dateExpires, likes, dislikes) "
-                + "VALUES (?,?,?,?,?,?,?,?)";
+        final String sql = "INSERT INTO Blog(blogID, title, content, userID, "
+                + "visible, datePosted, dateExpires, likes, dislikes) "
+                + "VALUES (?,?,?,?,?,?,?,?,?)";
         GeneratedKeyHolder key = new GeneratedKeyHolder();
         jdbc.update((Connection conn) -> {
             PreparedStatement pState = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -58,7 +58,7 @@ public class DaoBlogImpl implements DaoBlog{
     //Get blog by id
     @Override
     public Blog getBlog(int blogID){
-        final String GET_BLOG = "SELECT * FROM Blogs WHERE blogID = ?";
+        final String GET_BLOG = "SELECT * FOM Blogs WHERE blogID = ?";
         return jdbc.queryForObject(GET_BLOG, new BlogMapper(), blogID);
     }
     
@@ -69,26 +69,25 @@ public class DaoBlogImpl implements DaoBlog{
 //                + "visible, datePosted, dateExpires, likes, dislikes
     @Override
     public boolean updateBlog(Blog blog){
-        final String sql = "UPDATE Blogs SET "
+        final String sql = "UPDATE Blogs SET"
                 + "title = ?,"
                 + "content = ?,"
                 + "userID = ?,"
                 + "visible = ?,"
-                + "datePost = ?,"
+                + "datePosted = ?,"
                 + "dateExpires = ?,"
                 + "likes = ?,"
-                + "dislikes = ?"
-                + " WHERE blogID = ?";
+                + "dislikes = ?,"
+                + "WHERE blogID = ?";
         return jdbc.update(sql,
                 blog.getTitle(),
                 blog.getContent(),
-                blog.getUserID(), 
+                blog.getUserID(),
                 blog.isVisible(),
                 blog.getDatePosted(),
                 blog.getDateExpires(),
                 blog.getLikes(),
-                blog.getDislikes(),
-                blog.getBlogID()) > 0;
+                blog.getDislikes()) > 0;
     }
     
     @Override
@@ -119,7 +118,7 @@ public class DaoBlogImpl implements DaoBlog{
             newBlog.setContent(rs.getString("content"));
             newBlog.setUserID(rs.getInt("userID"));
             newBlog.setVisible(rs.getBoolean("visible"));
-            newBlog.setDatePosted(rs.getDate("datePost").toLocalDate());
+            newBlog.setDatePosted(rs.getDate("datePosted").toLocalDate());
             newBlog.setDateExpires(rs.getDate("dateExpires").toLocalDate());
             newBlog.setLikes(rs.getInt("likes"));
             newBlog.setDislikes(rs.getInt("dislikes"));

@@ -146,7 +146,7 @@ public class Blog {
 
     @Override
     public String toString() {
-        return "Blog{" + "blogID=" + blogID + ", title=" + title + ", content=" + content + ", userID=" + userID + ", visible=" + visible + ", datePost=" + datePosted + ", dateExpires=" + dateExpires + ", likes=" + likes + ", dislikes=" + dislikes + '}';
+        return "Blog{" + "blogID=" + blogID + ", title=" + title + ", content=" + content + ", userID=" + userID + ", visible=" + visible + ", datePosted=" + datePosted + ", dateExpires=" + dateExpires + ", likes=" + likes + ", dislikes=" + dislikes + '}';
     }
 
     
