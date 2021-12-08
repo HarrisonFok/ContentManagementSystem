@@ -39,13 +39,13 @@ public class DaoCommentImpl implements DaoComment{
             PreparedStatement pState = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             pState.setInt(1, comment.getUserID());
-            pState.setString(2, comment.getUserComment());
-            pState.setInt(3, comment.getBlogID());
+            pState.setInt(2, comment.getBlogID());
+            pState.setString(3, comment.getUserComment());
             
             
             return pState;
         }, key);
-        comment.setBlogID(key.getKey().intValue());
+        comment.setCommentID(key.getKey().intValue());
         return comment;
     }
     

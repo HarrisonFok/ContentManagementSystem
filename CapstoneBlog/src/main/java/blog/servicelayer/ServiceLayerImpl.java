@@ -120,29 +120,28 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     @Override
     public Comment addCommment(Comment comment){
-        throw new UnsupportedOperationException();
+        return daoComment.addCommment(comment);
     }
     @Override
     public Comment getComment(int commentID){
-        throw new UnsupportedOperationException();
+        return daoComment.getComment(commentID);
     }
     @Override
     public boolean updateComment(Comment comment){
-        throw new UnsupportedOperationException();
+        return daoComment.updateComment(comment);
         
     }
     @Override
     public boolean removeComment(int commentID){
-       throw new UnsupportedOperationException();
-        
+       return daoComment.removeComment(commentID);
     }
     @Override
     public List<Comment> getCommentsByUser(int userID){
-        throw new UnsupportedOperationException();
+        return daoComment.getCommentsByUser(userID);
     }
     @Override
     public List<Comment> getCommentsByBlog(int blogID){
-       throw new UnsupportedOperationException();
+       return daoComment.getCommentsByBlog(blogID);
     }
     
     //====Tag Pass-Through Methods====
