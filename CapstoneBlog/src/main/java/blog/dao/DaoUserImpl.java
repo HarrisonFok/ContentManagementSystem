@@ -33,7 +33,8 @@ public class DaoUserImpl implements DaoUser{
     
     @Override
     public User addUser(User user){
-        final String sql = "INSERT INTO Tags (firstName, lastName, userName, userPassword, userRole) "
+        System.out.println(user.getUserName());
+        final String sql = "INSERT INTO Users (firstName, lastName, userName, userPassword, userRole) "
                 + "VALUES (?,?,?,?,?)";
         GeneratedKeyHolder key = new GeneratedKeyHolder();
         jdbc.update((Connection conn) -> {
@@ -67,7 +68,7 @@ public class DaoUserImpl implements DaoUser{
                 + "userName = ?,"
                 + "userPassword = ?,"
                 + "userRole = ?"
-                + "WHERE userID = ?";
+                + " WHERE userID = ?";
         return jdbc.update(sql,
                 user.getFirstName(),
                 user.getLastName(),
@@ -99,6 +100,7 @@ public class DaoUserImpl implements DaoUser{
             user.setUserID(rs.getInt("userID"));
             user.setFirstName(rs.getString("firstName"));
             user.setLastName(rs.getString("lastName"));
+            user.setUserName(rs.getString("userName"));
             user.setUserPassword(rs.getString("userPassword"));
             user.setUserRole(rs.getString("userRole"));
             

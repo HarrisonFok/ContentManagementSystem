@@ -127,7 +127,6 @@ public class ControllerAdmin {
     
     @PostMapping("/user/add")
     public User addUser(@RequestBody User user){
-        System.out.println("HERE");
         User newUser = new User();
         newUser.setFirstName(user.getFirstName());
         newUser.setLastName(user.getLastName());
@@ -144,6 +143,7 @@ public class ControllerAdmin {
     
     @PutMapping("/user/update")
     public ResponseEntity<Object> updateUser(@RequestBody User user){
+        service.updateUser(user);
         return ResponseHandler.generateResponse("Successfully updated user!", HttpStatus.CREATED, user);
     }
     
