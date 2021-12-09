@@ -12,7 +12,9 @@ import blog.dto.BlogTags;
 import blog.dto.Tag;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -27,6 +29,12 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
     
     @Autowired
     JdbcTemplate jdbc;
+    
+    @Autowired
+    DaoBlogImpl daoBlog;
+    
+    @Autowired
+    DaoTagImpl daoTag;
     
     @Override
     public BlogTags addTag(BlogTags bTag){
@@ -46,15 +54,35 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
     
     @Override
     public List<Blog> getAllBlogsWithTag(int tagID){
-        final String sql = "SELECT * FROM blogs INNER JOIN blogtags ON blogtags.blogid = blogs.blogid WHERE tagID = ?";
-        return jdbc.query(sql, new BlogMapper(), tagID);
+        final String sql = "SELECT * FROM BlogTags WHERE tagID = ?";
+        List<BlogTags> blogTags = jdbc.query(sql, new BlogTagsMapper(), tagID);
+        List<Integer> blogIDs = new ArrayList();
+        for(BlogTags b: blogTags){
+             blogIDs.add(b.getBlogID());
+         }
+        
+        List<Blog> taggedBlogs = daoBlog.getAllBlogs().stream()
+                .filter((b) -> blogIDs.contains(b.getBlogID()))
+                .collect(Collectors.toList());
+//        List<Blog> taggedBlogs = blogs
+        return taggedBlogs;
     }
+    
     
     @Override
     public List<Tag> getAllTagsForBlog(int blogID){
-        final String sql = "SELECT tagID FROM BlogTags WHERE blogID = ?";
-        
-        return jdbc.query(sql, new TagMapper(), blogID);
+        final String sql = "SELECT * FROM BlogTags WHERE blogID = ?";
+        List<BlogTags> blogTags = jdbc.query(sql, new BlogTagsMapper(), blogID);
+//        List<Integer> tagIDs = jdbc.query(sql, new BlogIDMapper(), blogID);
+         List<Integer> tagIDs = new ArrayList();
+         for(BlogTags b: blogTags){
+             tagIDs.add(b.getTagID());
+         }
+//                 .collect(Collectors.toList());
+        List<Tag> tags = daoTag.getAllTags().stream()
+                .filter((t) -> tagIDs.contains(t.getTagID()))
+                .collect(Collectors.toList());
+        return tags;
         
     }
     
@@ -68,6 +96,12 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
             return newBlogTag;
         }
         
+    }
+    
+    @Override
+    public List<BlogTags> getAllBlogTags(){
+        final String sql = "SELECT * FROM BlogTags";
+        return jdbc.query(sql, new BlogTagsMapper());
     }
     
     private static final class BlogMapper implements RowMapper<Blog> {

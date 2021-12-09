@@ -33,7 +33,7 @@ public class DaoUserImpl implements DaoUser{
     
     @Override
     public User addUser(User user){
-        System.out.println(user.getUserName());
+//        System.out.println(user.getUserName());
         final String sql = "INSERT INTO Users (firstName, lastName, userName, userPassword, userRole) "
                 + "VALUES (?,?,?,?,?)";
         GeneratedKeyHolder key = new GeneratedKeyHolder();
