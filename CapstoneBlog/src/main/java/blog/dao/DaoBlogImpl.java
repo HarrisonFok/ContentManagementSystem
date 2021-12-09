@@ -35,7 +35,7 @@ public class DaoBlogImpl implements DaoBlog{
     @Override
     public Blog addBlog(Blog newBlog){
         final String sql = "INSERT INTO Blogs(title, content, userID, "
-                + "visible, datePost, dateExpires, likes, dislikes) "
+                + "visible, datePosted, dateExpires, likes, dislikes) "
                 + "VALUES (?,?,?,?,?,?,?,?)";
         GeneratedKeyHolder key = new GeneratedKeyHolder();
         jdbc.update((Connection conn) -> {
@@ -75,7 +75,7 @@ public class DaoBlogImpl implements DaoBlog{
                 + "content = ?,"
                 + "userID = ?,"
                 + "visible = ?,"
-                + "datePost = ?,"
+                + "datePosted = ?,"
                 + "dateExpires = ?,"
                 + "likes = ?,"
                 + "dislikes = ?"
@@ -124,7 +124,7 @@ public class DaoBlogImpl implements DaoBlog{
             newBlog.setContent(rs.getString("content"));
             newBlog.setUserID(rs.getInt("userID"));
             newBlog.setVisible(rs.getBoolean("visible"));
-            newBlog.setDatePosted(rs.getDate("datePost").toLocalDate());
+            newBlog.setDatePosted(rs.getDate("datePosted").toLocalDate());
             newBlog.setDateExpires(rs.getDate("dateExpires") != null ? rs.getDate("dateExpires").toLocalDate() : null);
             newBlog.setLikes(rs.getInt("likes"));
             newBlog.setDislikes(rs.getInt("dislikes"));
