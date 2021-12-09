@@ -46,8 +46,8 @@ public class Tag {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.tagID;
-        hash = 97 * hash + Objects.hashCode(this.hashTag);
+        hash = 73 * hash + this.tagID;
+        hash = 73 * hash + Objects.hashCode(this.hashTag);
         return hash;
     }
 
@@ -76,6 +76,10 @@ public class Tag {
     public String toString() {
         return "Tag{" + "tagID=" + tagID + ", hashTag=" + hashTag + '}';
     }
+
+
+
+    
     
     
 }

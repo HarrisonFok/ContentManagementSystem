@@ -15,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,19 +51,20 @@ public class ControllerAssistant {
                             + "access privileges to create a visible blog",
                     HttpStatus.MULTI_STATUS, null);
         }
+        newBlog = service.addBlog(newBlog);
         return ResponseHandler.generateResponse("Successfully added blog!", HttpStatus.OK, newBlog);
     }
     
-    @PutMapping("/edit/blog")
-    public ResponseEntity<Object> getEditBlog(Blog blog, int userID){
+    @PostMapping("/edit/blog/{userID}")
+    public ResponseEntity<Object> getEditBlog(@RequestBody Blog blog,@PathVariable int userID){
         
         User user = service.getUser(userID);
         Blog originalBlog = service.getBlog(blog.getBlogID());
         
         User blogUser = service.getUser(blog.getUserID());
-        
-        if(service.checkAccessPrivilegeAssistant(user) &&
-                service.checkAccessPrivilegeAssistant(blogUser)){
+
+        if(!service.checkAccessPrivilegeAssistant(user) &&
+                !service.checkAccessPrivilegeAssistant(blogUser)){
             return ResponseHandler.generateResponse(
                     "Error: user does not have access to blog",
                     HttpStatus.MULTI_STATUS, null);

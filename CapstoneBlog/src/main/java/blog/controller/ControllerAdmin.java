@@ -12,10 +12,10 @@ import blog.dto.BlogTags;
 import blog.dto.Tag;
 import blog.dto.User;
 import blog.servicelayer.ServiceLayerImpl;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -50,8 +50,8 @@ public class ControllerAdmin {
     //works
     @PostMapping("/blog/new")
     public ResponseEntity<Object> addBlog(@RequestBody Blog newBlog){
-        service.addBlog(newBlog);
-        return new ResponseEntity(HttpStatus.OK);
+        newBlog = service.addBlog(newBlog);
+        return   ResponseHandler.generateResponse("Successfully added blog!", HttpStatus.OK, newBlog);
     }
     
     //works
@@ -67,7 +67,7 @@ public class ControllerAdmin {
             blog.setBlogID(blogID);
             boolean blogUpdated = service.updateBlog(blog);
             if(blogUpdated){
-                return new ResponseEntity(HttpStatus.OK);
+                return   ResponseHandler.generateResponse("Successfully edited blog!", HttpStatus.OK, blog);
             }
             else{
                 return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -124,19 +124,30 @@ public class ControllerAdmin {
         return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
-    @GetMapping("/tag/get/all/tagsforblog")
+    @PostMapping("/tag/get/all/tagsforblog")
     public List<Tag> getAllTagsForBlog(int blogID){
         return service.getAllTagsForBlog(blogID);
     }
     
     @PostMapping("/tag/add/blogTag")
-    public BlogTags addTag(@RequestBody BlogTags bTag){
-        if(service.getAllTags().contains(service.getTag(bTag.getTagID()))
-                && service.getAllBlogs().contains(service.getBlog(bTag.getBlogID())))   {
-            return service.addTag(bTag);
+    public ResponseEntity<Object> addTag(@RequestBody BlogTags bTag){
+        try{
+                if(service.getAllTags().contains(service.getTag(bTag.getTagID()))
+                    && service.getAllBlogs().contains(service.getBlog(bTag.getBlogID())))   {
+                    service.addTag(bTag);
+                    return ResponseHandler.generateResponse("Successfully added tag to blog!", HttpStatus.OK, bTag); 
+            }   
+        }catch(EmptyResultDataAccessException e){
+            return ResponseHandler.generateResponse(
+                                "Error: tag or blog is not in system",
+                                HttpStatus.MULTI_STATUS, null);
         }
-        return null;
+        
+        return ResponseHandler.generateResponse(
+                    "Error: blog already has tag",
+                    HttpStatus.MULTI_STATUS, null);
     }
+    
 
     @PostMapping("/tag/add/tag")
     public Tag addHashTag(@RequestBody Tag tag){
@@ -144,8 +155,8 @@ public class ControllerAdmin {
     }
 
     
-    @GetMapping("/tag/get")
-    public Tag getTag(int tagID){
+    @PostMapping("/tag/get/{tagID}")
+    public Tag getTag(@PathVariable int tagID){
         return service.getTag(tagID);
     }
     
@@ -154,7 +165,7 @@ public class ControllerAdmin {
         if(!service.getAllTags().contains(service.getTag(tag.getTagID()))) {
             return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
         } else if (service.updateTag(tag)) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return ResponseHandler.generateResponse("Successfully updated tag!", HttpStatus.OK, tag);
         }
         return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
@@ -188,8 +199,8 @@ public class ControllerAdmin {
     }
     
     @GetMapping("/user/get")
-    public User getUser(int user){
-        return service.getUser(user);
+    public User getUser(int userID){
+        return service.getUser(userID);
     }
     
     @PutMapping("/user/update")
