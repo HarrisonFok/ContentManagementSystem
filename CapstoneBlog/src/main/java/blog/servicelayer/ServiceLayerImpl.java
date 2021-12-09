@@ -95,6 +95,16 @@ public class ServiceLayerImpl implements ServiceLayer{
         return daoBlog.getBlogsByUser(userID);
     }
     
+    @Override
+    public boolean addLike(int blogID) {
+        return daoBlog.addLike(blogID);
+    }
+
+    @Override
+    public boolean addDislike(int blogID) {
+        return daoBlog.addDislike(blogID);
+    }
+    
     //====BlogTags Pass-Through Methods====
     
     @Override

@@ -20,5 +20,7 @@ public interface DaoBlog {
     public boolean removeBlog(int blogID);
     public List<Blog> getAllBlogs();
     public List<Blog> getBlogsByUser(int userID);
+    public boolean addLike(int blogID);
+    public boolean addDislike(int blogID);
     
 }

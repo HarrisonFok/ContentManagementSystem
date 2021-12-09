@@ -1,5 +1,6 @@
 package blog.controller;
 
+import blog.dto.Blog;
 import blog.dto.Comment;
 import blog.dto.User;
 import blog.servicelayer.ServiceLayerImpl;
@@ -73,4 +74,15 @@ public class ControllerGeneral {
     }
     
     //===== Likes Related Methods =====
+    @PostMapping("/comment/like")
+    public ResponseEntity<Object> addLike(int blogID) {
+        service.addLike(blogID);
+        return ResponseHandler.generateResponse("Successfully added a like!", HttpStatus.CREATED, service.getBlog(blogID));
+    }
+    
+    @PostMapping("/comment/dislike")
+    public ResponseEntity<Object> addDisLike(int blogID) {
+        service.addDislike(blogID);
+        return ResponseHandler.generateResponse("Successfully added a dislike!", HttpStatus.CREATED, service.getBlog(blogID));
+    }
 }

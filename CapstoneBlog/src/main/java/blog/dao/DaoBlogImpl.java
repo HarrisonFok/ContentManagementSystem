@@ -62,8 +62,6 @@ public class DaoBlogImpl implements DaoBlog{
         return jdbc.queryForObject(GET_BLOG, new BlogMapper(), blogID);
     }
     
-    
-    
     //update a blog useing id
 //    blogID, title, content, userID, "
 //                + "visible, datePosted, dateExpires, likes, dislikes
@@ -107,6 +105,26 @@ public class DaoBlogImpl implements DaoBlog{
     public List<Blog> getBlogsByUser(int userID){
         final String GET_ALL_BLOGS_BY_USER = "SELECT * FROM Blogs WHERE userID = ?";
         return jdbc.query(GET_ALL_BLOGS_BY_USER, new BlogMapper(), userID);
+    }
+    
+    @Override
+    public boolean addLike(int blogID) {
+        final String sql = "UPDATE Blogs SET likes = ? WHERE blogID = ?";
+        Blog blog = this.getBlog(blogID);
+        int likes = blog.getLikes() + 1;
+        return jdbc.update(sql,
+                likes,
+                blogID) > 0;
+    }
+
+    @Override
+    public boolean addDislike(int blogID) {
+        final String sql = "UPDATE Blogs SET dislikes = ? WHERE blogID = ?";
+        Blog blog = this.getBlog(blogID);
+        int dislikes = blog.getDislikes()+ 1;
+        return jdbc.update(sql,
+                dislikes,
+                blogID) > 0;
     }
     
     private static final class BlogMapper implements RowMapper<Blog> {
