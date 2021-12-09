@@ -22,6 +22,7 @@ import blog.dto.BlogTags;
 import blog.dto.Comment;
 import blog.dto.Tag;
 import blog.dto.User;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -66,32 +67,32 @@ public class ServiceLayerImpl implements ServiceLayer{
     }
 
     //====Blog Pass-Through Methods====
-    
+    //--noel
     @Override
     public Blog addBlog(Blog blog){
-        throw new UnsupportedOperationException();
+        return daoBlog.addBlog(blog);
     }
     @Override
     public Blog getBlog(int blogID){
-        throw new UnsupportedOperationException();
+        return daoBlog.getBlog(blogID);
     }
     @Override
     public boolean updateBlog(Blog blog){
-        throw new UnsupportedOperationException();
+        return daoBlog.updateBlog(blog);
         
     }
     @Override
     public boolean removeBlog(int blogID){
-        throw new UnsupportedOperationException();
+        return daoBlog.removeBlog(blogID);
         
     }
     @Override
     public List<Blog> getAllBlogs(){
-        throw new UnsupportedOperationException();
+        return daoBlog.getAllBlogs();
     }
     @Override
     public List<Blog> getBlogsByUser(int userID){
-        throw new UnsupportedOperationException();
+        return daoBlog.getBlogsByUser(userID);
     }
     
     //====BlogTags Pass-Through Methods====
@@ -105,9 +106,10 @@ public class ServiceLayerImpl implements ServiceLayer{
         return daoBlogTags.removeTagFromBlog(bTag);
         
     }
+    //--noel
     @Override
     public List<Blog> getAllBlogsWithTag(int tagID){
-        throw new UnsupportedOperationException();
+        return daoBlogTags.getAllBlogsWithTag(tagID);
     }
     @Override
     public List<Tag> getAllTagsForBlog(int blogID){
@@ -118,29 +120,28 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     @Override
     public Comment addCommment(Comment comment){
-        throw new UnsupportedOperationException();
+        return daoComment.addCommment(comment);
     }
     @Override
     public Comment getComment(int commentID){
-        throw new UnsupportedOperationException();
+        return daoComment.getComment(commentID);
     }
     @Override
     public boolean updateComment(Comment comment){
-        throw new UnsupportedOperationException();
+        return daoComment.updateComment(comment);
         
     }
     @Override
     public boolean removeComment(int commentID){
-       throw new UnsupportedOperationException();
-        
+       return daoComment.removeComment(commentID);
     }
     @Override
     public List<Comment> getCommentsByUser(int userID){
-        throw new UnsupportedOperationException();
+        return daoComment.getCommentsByUser(userID);
     }
     @Override
     public List<Comment> getCommentsByBlog(int blogID){
-       throw new UnsupportedOperationException();
+       return daoComment.getCommentsByBlog(blogID);
     }
     
     //====Tag Pass-Through Methods====
@@ -191,9 +192,17 @@ public class ServiceLayerImpl implements ServiceLayer{
     
     //=====Business Logic Methods=====
     
+    //--noel
     @Override
     public List<Blog> getBlogsByVisibility(boolean visible){
-        throw new UnsupportedOperationException();
+        List<Blog> blogs = daoBlog.getAllBlogs();
+        List<Blog> blogsByVisibility = new ArrayList<>();
+        for (Blog blog : blogs){
+            if(blog.isVisible()==visible){
+                blogsByVisibility.add(blog);
+            }
+        }
+        return blogsByVisibility;
     }
     
     @Override
