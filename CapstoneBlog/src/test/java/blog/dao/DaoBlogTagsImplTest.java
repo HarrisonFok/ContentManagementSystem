@@ -118,7 +118,7 @@ public class DaoBlogTagsImplTest {
                                                             newHashTag.getTagID()));
        //test getting blog tags and getting tagged blogs
        List<Tag> tags = daoBlogTags.getAllTagsForBlog(newBlog1.getBlogID());
-       List<Blog> blogs = daoBlogTags.getAllBlogWithTag(newHashTag.getTagID());
+       List<Blog> blogs = daoBlogTags.getAllBlogsWithTag(newHashTag.getTagID());
        
        assertEquals(tags.size(),1);
        assertEquals(blogs.size(),1);
@@ -133,7 +133,7 @@ public class DaoBlogTagsImplTest {
        assertTrue(daoBlogTags.removeTagFromBlog(blogTags));
        
        tags = daoBlogTags.getAllTagsForBlog(newBlog1.getBlogID());
-       blogs = daoBlogTags.getAllBlogWithTag(newHashTag.getTagID());
+       blogs = daoBlogTags.getAllBlogsWithTag(newHashTag.getTagID());
        
        assertEquals(tags.size(),0);
        assertEquals(blogs.size(),0);

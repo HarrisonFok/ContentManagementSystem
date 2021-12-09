@@ -12,9 +12,11 @@ import blog.dto.BlogTags;
 import blog.dto.Tag;
 import blog.dto.User;
 import blog.servicelayer.ServiceLayerImpl;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,46 +44,71 @@ public class ControllerAdmin {
     }
     
     //===== Blog Related Methods =====
+    // -- noel
     
+    
+    //works
     @PostMapping("/blog/new")
     public ResponseEntity<Object> addBlog(@RequestBody Blog newBlog){
-        throw new UnsupportedOperationException();
+        service.addBlog(newBlog);
+        return new ResponseEntity(HttpStatus.OK);
     }
     
+    //works
     @GetMapping("/blog/get/{blogID}")
     public Blog getBlog(@PathVariable int blogID){
-        throw new UnsupportedOperationException();
+        return service.getBlog(blogID);
     }
     
+    //works
     @PutMapping("/blog/update/{blogID}")
     public ResponseEntity<Object> updateBlog(@PathVariable int blogID,
             @RequestBody Blog blog){
-        throw new UnsupportedOperationException();
+            blog.setBlogID(blogID);
+            boolean blogUpdated = service.updateBlog(blog);
+            if(blogUpdated){
+                return new ResponseEntity(HttpStatus.OK);
+            }
+            else{
+                return new ResponseEntity(HttpStatus.NOT_FOUND);
+            }
+        
     }
     
+    //works
     @DeleteMapping("/blog/delete/{blogID}")
     public ResponseEntity<Object> deleteBlog(@PathVariable int blogID){
-        throw new UnsupportedOperationException();
+        boolean blogRemoved = service.removeBlog(blogID);
+        if(blogRemoved){
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
     
+    //works
     @GetMapping("/blog/get/blogs/all")
     public List<Blog> getAllBlogs(){
-        throw new UnsupportedOperationException();
+        return service.getAllBlogs();
     }
     
+    //works
     @GetMapping("/blog/get/blogs/all/byuser/{userID}")
     public List<Blog> getBlogsByUser(@PathVariable int userID){
-        throw new UnsupportedOperationException();
+        return service.getBlogsByUser(userID);
     }
     
+    //works
     @GetMapping("/blog/get/blogs/all/byvisibility/{visible}")
     public List<Blog> getBlogsByVisibility(@PathVariable boolean visible){
-        throw new UnsupportedOperationException();
+        return service.getBlogsByVisibility(visible);
     }
     
-    @GetMapping("/blog/get/blogs/all/bytag")
-    public List<Blog> getAllBlogsWithTag(int tagID){
-        throw new UnsupportedOperationException();
+    //works
+    @GetMapping("/blog/get/blogs/all/bytag/{tagID}")
+    public List<Blog> getAllBlogsWithTag(@PathVariable int tagID){
+        return service.getAllBlogsWithTag(tagID);
     }
     
     
@@ -89,64 +116,89 @@ public class ControllerAdmin {
     
     @DeleteMapping("/tag/delete/blogtag")
     public ResponseEntity<Object> removeTagFromBlog(int blogID, int tagID){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTagsForBlog(blogID).contains(service.getTag(tagID))) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.removeTagFromBlog(new BlogTags(blogID, tagID))) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @GetMapping("/tag/get/all/tagsforblog")
     public List<Tag> getAllTagsForBlog(int blogID){
-        throw new UnsupportedOperationException();
+        return service.getAllTagsForBlog(blogID);
     }
     
     @PutMapping("/tag/add")
     public BlogTags addTag(@RequestBody BlogTags bTag){
-        throw new UnsupportedOperationException();
+        return service.addTag(bTag);
     }
     
     @GetMapping("/tag/get")
     public Tag getTag(int tagID){
-        throw new UnsupportedOperationException();
+        return service.getTag(tagID);
     }
     
     @PutMapping("/tag/update")
     public ResponseEntity<Object> updateTag(@RequestBody Tag tag){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTags().contains(tag)) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.updateTag(tag)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @DeleteMapping("/tag/delete")
     public ResponseEntity<Object> deleteTag(int tagID){
-        throw new UnsupportedOperationException();
+        if(!service.getAllTags().contains(service.getTag(tagID))) {
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        } else if (service.removeTag(tagID)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
     
     @GetMapping("/tag/get/all/tags")
     public List<Tag> getAllTags(){
-        throw new UnsupportedOperationException();
+        return service.getAllTags();
     }
     
     //===== User Related Methods =====
     
     @PostMapping("/user/add")
     public User addUser(@RequestBody User user){
-        throw new UnsupportedOperationException();
+        User newUser = new User();
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setUserName(user.getUserName());
+        newUser.setUserPassword(user.getUserPassword());
+        newUser.setUserRole(user.getUserRole());
+        return service.addUser(newUser);
     }
     
     @GetMapping("/user/get")
     public User getUser(int user){
-        throw new UnsupportedOperationException();
+        return service.getUser(user);
     }
     
     @PutMapping("/user/update")
     public ResponseEntity<Object> updateUser(@RequestBody User user){
-        throw new UnsupportedOperationException();
+        service.updateUser(user);
+        return ResponseHandler.generateResponse("Successfully updated user!", HttpStatus.CREATED, user);
     }
     
     @DeleteMapping("/user/delete")
     public ResponseEntity<Object> removeUser(int userID){
-        throw new UnsupportedOperationException();
+        if (service.removeUser(userID)) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     
     @GetMapping("/user/get/all")
     public List<User> getAllUsers(){
-        throw new UnsupportedOperationException();
+        return service.getAllUsers();
     }
     
 }
