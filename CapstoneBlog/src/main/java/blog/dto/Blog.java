@@ -116,16 +116,16 @@ public class Blog {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 61 * hash + this.blogID;
-        hash = 61 * hash + Objects.hashCode(this.title);
-        hash = 61 * hash + Objects.hashCode(this.content);
-        hash = 61 * hash + this.userID;
-        hash = 61 * hash + (this.visible ? 1 : 0);
-        hash = 61 * hash + Objects.hashCode(this.datePosted);
-        hash = 61 * hash + Objects.hashCode(this.dateExpires);
-        hash = 61 * hash + this.likes;
-        hash = 61 * hash + this.dislikes;
+        int hash = 7;
+        hash = 67 * hash + this.blogID;
+        hash = 67 * hash + Objects.hashCode(this.title);
+        hash = 67 * hash + Objects.hashCode(this.content);
+        hash = 67 * hash + this.userID;
+        hash = 67 * hash + (this.visible ? 1 : 0);
+        hash = 67 * hash + Objects.hashCode(this.datePosted);
+        hash = 67 * hash + Objects.hashCode(this.dateExpires);
+        hash = 67 * hash + this.likes;
+        hash = 67 * hash + this.dislikes;
         return hash;
     }
 
@@ -141,14 +141,42 @@ public class Blog {
             return false;
         }
         final Blog other = (Blog) obj;
+        if (this.blogID != other.blogID) {
+            return false;
+        }
+        if (this.userID != other.userID) {
+            return false;
+        }
+        if (this.visible != other.visible) {
+            return false;
+        }
+        if (this.likes != other.likes) {
+            return false;
+        }
+        if (this.dislikes != other.dislikes) {
+            return false;
+        }
+        if (!Objects.equals(this.title, other.title)) {
+            return false;
+        }
+        if (!Objects.equals(this.content, other.content)) {
+            return false;
+        }
+        if (!Objects.equals(this.datePosted, other.datePosted)) {
+            return false;
+        }
+        if (!Objects.equals(this.dateExpires, other.dateExpires)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Blog{" + "blogID=" + blogID + ", title=" + title + ", content=" + content + ", userID=" + userID + ", visible=" + visible + ", datePost=" + datePosted + ", dateExpires=" + dateExpires + ", likes=" + likes + ", dislikes=" + dislikes + '}';
+        return "Blog{" + "blogID=" + blogID + ", title=" + title + ", content=" + content + ", userID=" + userID + ", visible=" + visible + ", datePosted=" + datePosted + ", dateExpires=" + dateExpires + ", likes=" + likes + ", dislikes=" + dislikes + '}';
     }
 
+    
     
     
 }

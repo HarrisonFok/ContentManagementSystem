@@ -17,6 +17,7 @@ public interface DaoComment {
     
     public Comment addCommment(Comment comment);
     public Comment getComment(int commentID);
+    public List<Comment> getAllComments();
     public boolean updateComment(Comment comment);
     public boolean removeComment(int commentID);
     public List<Comment> getCommentsByUser(int userID);

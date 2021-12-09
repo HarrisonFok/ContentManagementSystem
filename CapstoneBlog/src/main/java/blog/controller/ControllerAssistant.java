@@ -68,6 +68,12 @@ public class ControllerAssistant {
                     HttpStatus.MULTI_STATUS, null);
         }
         
+        if(!service.validUserIDForBlog(userID, blog.getUserID())){
+            return ResponseHandler.generateResponse(
+                    "Error: userID deos not match blog userID",
+                    HttpStatus.MULTI_STATUS, null);
+        }
+        
         if(originalBlog.isVisible()){
             return ResponseHandler.generateResponse(
                     "Error: blog is visible. Only admin can now edit blog",

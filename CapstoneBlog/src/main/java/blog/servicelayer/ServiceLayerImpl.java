@@ -113,7 +113,7 @@ public class ServiceLayerImpl implements ServiceLayer{
     }
     @Override
     public List<Tag> getAllTagsForBlog(int blogID){
-        throw new UnsupportedOperationException();
+        return daoBlogTags.getAllTagsForBlog(blogID);
     }
     
     //====Comment Pass-Through Methods====
@@ -206,8 +206,9 @@ public class ServiceLayerImpl implements ServiceLayer{
     }
     
     @Override
-    public boolean validUserIDForBlog(int userID, int blogID){
-        if(userID == blogID){
+    public boolean validUserIDForBlog(int userID1, int userID2){
+//        Blog blog = getBlog(blogID);
+        if(userID1 == userID2){
             return true;
         }
         return false;

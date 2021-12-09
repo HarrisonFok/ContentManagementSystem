@@ -57,6 +57,12 @@ public class DaoCommentImpl implements DaoComment{
     }
     
     @Override
+    public List<Comment> getAllComments(){
+        final String sql = "SELECT * FROM Comments";
+        return jdbc.query(sql, new CommentMapper());
+    }
+    
+    @Override
     public boolean updateComment(Comment comment){
         final String sql = "UPDATE Comments SET "
                 + "userID = ?,"
