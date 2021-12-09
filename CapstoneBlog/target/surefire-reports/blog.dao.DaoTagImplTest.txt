@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: blog.dao.DaoTagImplTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.937 s - in blog.dao.DaoTagImplTest

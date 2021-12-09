@@ -18,7 +18,8 @@ public interface DaoBlogTags {
     
     public BlogTags addTag(BlogTags bTag);
     public boolean removeTagFromBlog(BlogTags bTag);
-    public List<Blog> getAllBlogsWithTag(int tagID);
+    public List<Blog> getAllBlogWithTag(int tagID);
     public List<Tag> getAllTagsForBlog(int blogID);
+    public List<BlogTags> getAllBlogTags();
     
 }

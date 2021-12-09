@@ -46,7 +46,7 @@ public class ControllerAssistant {
     public ResponseEntity<Object> newBlog(@RequestBody Blog newBlog){
         if(service.isVisible(newBlog)){
             return ResponseHandler.generateResponse(
-                    "Error: blog is visiblity is true. You do not have "
+                    "Error: blog visiblity is true. You do not have "
                             + "access privileges to create a visible blog",
                     HttpStatus.MULTI_STATUS, null);
         }

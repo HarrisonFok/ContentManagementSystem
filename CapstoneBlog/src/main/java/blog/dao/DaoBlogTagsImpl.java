@@ -12,7 +12,9 @@ import blog.dto.BlogTags;
 import blog.dto.Tag;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -28,6 +30,12 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
     @Autowired
     JdbcTemplate jdbc;
     
+    @Autowired
+    DaoBlogImpl daoBlog;
+    
+    @Autowired
+    DaoTagImpl daoTag;
+    
     @Override
     public BlogTags addTag(BlogTags bTag){
         final String sql ="INSERT INTO BlogTags (blogID, tagID) VALUES (?,?)";
@@ -35,6 +43,7 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
         
         return bTag;
     }
+   
     
     @Override
     public boolean removeTagFromBlog(BlogTags bTag){
@@ -45,17 +54,42 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
     }
     
     @Override
-    public List<Blog> getAllBlogsWithTag(int tagID){
-        final String sql = "SELECT * FROM blogs INNER JOIN blogstags ON blogstags.blogid = blogs.blogid WHERE tagID = ?";
-        return jdbc.query(sql, new BlogMapper(), tagID);
+    public List<Blog> getAllBlogWithTag(int tagID){
+        final String sql = "SELECT * FROM BlogTags WHERE tagID = ?";
+        List<BlogTags> blogTags = jdbc.query(sql, new BlogTagsMapper(), tagID);
+        List<Integer> blogIDs = new ArrayList();
+        for(BlogTags b: blogTags){
+             blogIDs.add(b.getBlogID());
+         }
+        
+        List<Blog> taggedBlogs = daoBlog.getAllBlogs().stream()
+                .filter((b) -> blogIDs.contains(b.getBlogID()))
+                .collect(Collectors.toList());
+//        List<Blog> taggedBlogs = blogs
+        return taggedBlogs;
     }
     
     @Override
     public List<Tag> getAllTagsForBlog(int blogID){
-        final String sql = "SELECT tagID FROM BlogTags WHERE blogID = ?";
+        final String sql = "SELECT * FROM BlogTags WHERE blogID = ?";
+        List<BlogTags> blogTags = jdbc.query(sql, new BlogTagsMapper(), blogID);
+//        List<Integer> tagIDs = jdbc.query(sql, new BlogIDMapper(), blogID);
+         List<Integer> tagIDs = new ArrayList();
+         for(BlogTags b: blogTags){
+             tagIDs.add(b.getTagID());
+         }
+//                 .collect(Collectors.toList());
+        List<Tag> tags = daoTag.getAllTags().stream()
+                .filter((t) -> tagIDs.contains(t.getTagID()))
+                .collect(Collectors.toList());
+        return tags;
         
-        return jdbc.query(sql, new TagMapper(), blogID);
-        
+    }
+    
+    @Override
+    public List<BlogTags> getAllBlogTags(){
+        final String sql = "SELECT * FROM BlogTags";
+        return jdbc.query(sql, new BlogTagsMapper());
     }
     
     private static final class BlogTagsMapper implements RowMapper<BlogTags> {
@@ -80,7 +114,7 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
             newBlog.setContent(rs.getString("content"));
             newBlog.setUserID(rs.getInt("userID"));
             newBlog.setVisible(rs.getBoolean("visible"));
-            newBlog.setDatePosted(rs.getDate("datePost").toLocalDate());
+            newBlog.setDatePosted(rs.getDate("datePosted").toLocalDate());
             newBlog.setDateExpires(rs.getDate("dateExpires").toLocalDate());
             newBlog.setLikes(rs.getInt("likes"));
             newBlog.setDislikes(rs.getInt("dislikes"));
@@ -98,6 +132,26 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
             tag.setHashTag(rs.getString("hashTag"));
             
             return tag;
+        }
+        
+    }
+    
+    private static final class TagIDMapper implements RowMapper<Integer> {
+
+        @Override
+        public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
+            int tagID = rs.getInt("tagID");
+            return tagID;
+        }
+        
+    }
+    
+    private static final class BlogIDMapper implements RowMapper<Integer> {
+
+        @Override
+        public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Integer id = new Integer(rs.getInt("blogID"));
+            return id;
         }
         
     }

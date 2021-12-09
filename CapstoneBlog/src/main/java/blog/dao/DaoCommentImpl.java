@@ -40,7 +40,7 @@ public class DaoCommentImpl implements DaoComment{
             
             pState.setInt(1, comment.getUserID());
             pState.setInt(2, comment.getBlogID());
-            pState.setString(3, comment.getUserComment());
+            pState.setString(3, comment.getUserComment() );
             
             
             return pState;
@@ -88,6 +88,12 @@ public class DaoCommentImpl implements DaoComment{
     public List<Comment> getCommentsByBlog(int blogID){
         final String sql = "SELECT * FROM Comments WHERE blogID = ?";
         return jdbc.query(sql, new CommentMapper(), blogID);
+    }
+    
+    @Override
+    public List<Comment> getAllComments(){
+        final String sql = "SELECT * FROM Comments";
+        return jdbc.query(sql, new CommentMapper());
     }
     
     private static final class CommentMapper implements RowMapper<Comment> {

@@ -21,5 +21,6 @@ public interface DaoComment {
     public boolean removeComment(int commentID);
     public List<Comment> getCommentsByUser(int userID);
     public List<Comment> getCommentsByBlog(int blogID);
+    public List<Comment> getAllComments();
     
 }

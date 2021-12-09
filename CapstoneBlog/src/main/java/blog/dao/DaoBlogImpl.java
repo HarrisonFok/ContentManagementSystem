@@ -20,6 +20,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -34,11 +35,12 @@ public class DaoBlogImpl implements DaoBlog{
     @Override
     public Blog addBlog(Blog newBlog){
         final String sql = "INSERT INTO Blogs(title, content, userID, "
-                + "visible, datePost, dateExpires, likes, dislikes) "
+                + "visible, datePosted, dateExpires, likes, dislikes) "
                 + "VALUES (?,?,?,?,?,?,?,?)";
         GeneratedKeyHolder key = new GeneratedKeyHolder();
         jdbc.update((Connection conn) -> {
             PreparedStatement pState = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            
             
             pState.setString(1, newBlog.getTitle());
             pState.setString(2, newBlog.getContent());
@@ -48,6 +50,7 @@ public class DaoBlogImpl implements DaoBlog{
             pState.setDate(6, Date.valueOf(newBlog.getDateExpires()));
             pState.setInt(7, newBlog.getLikes());
             pState.setInt(8, newBlog.getDislikes());
+            
             
             return pState;
         }, key);
@@ -67,22 +70,24 @@ public class DaoBlogImpl implements DaoBlog{
     //update a blog useing id
 //    blogID, title, content, userID, "
 //                + "visible, datePosted, dateExpires, likes, dislikes
+    
     @Override
+    @Transactional
     public boolean updateBlog(Blog blog){
         final String sql = "UPDATE Blogs SET "
                 + "title = ?,"
                 + "content = ?,"
                 + "userID = ?,"
                 + "visible = ?,"
-                + "datePost = ?,"
+                + "datePosted = ?,"
                 + "dateExpires = ?,"
                 + "likes = ?,"
-                + "dislikes = ?"
-                + " WHERE blogID = ?";
+                + "dislikes = ? "
+                + "WHERE blogID = ?";
         return jdbc.update(sql,
                 blog.getTitle(),
                 blog.getContent(),
-                blog.getUserID(), 
+                blog.getUserID(),
                 blog.isVisible(),
                 blog.getDatePosted(),
                 blog.getDateExpires(),
@@ -119,7 +124,7 @@ public class DaoBlogImpl implements DaoBlog{
             newBlog.setContent(rs.getString("content"));
             newBlog.setUserID(rs.getInt("userID"));
             newBlog.setVisible(rs.getBoolean("visible"));
-            newBlog.setDatePosted(rs.getDate("datePost").toLocalDate());
+            newBlog.setDatePosted(rs.getDate("datePosted").toLocalDate());
             newBlog.setDateExpires(rs.getDate("dateExpires").toLocalDate());
             newBlog.setLikes(rs.getInt("likes"));
             newBlog.setDislikes(rs.getInt("dislikes"));
