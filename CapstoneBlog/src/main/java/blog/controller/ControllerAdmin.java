@@ -151,7 +151,7 @@ public class ControllerAdmin {
     
     @PutMapping("/tag/update")
     public ResponseEntity<Object> updateTag(@RequestBody Tag tag){
-        if(!service.getAllTags().contains(tag)) {
+        if(!service.getAllTags().contains(service.getTag(tag.getTagID()))) {
             return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
         } else if (service.updateTag(tag)) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -19,6 +19,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -55,13 +56,19 @@ public class DaoTagImpl implements DaoTag{
     @Override
     public boolean updateTag(Tag tag){
        final String sql = "UPDATE Tags SET "
-               + "hashTag = ?";
-       return jdbc.update(sql, tag.getHashTag()) > 0;
+               + "hashTag = ?"
+               + "WHERE tagID = ?";
+       return jdbc.update(sql, tag.getHashTag(), tag.getTagID()) > 0;
         
     }
     
     @Override
+    @Transactional
     public boolean removeTag(int tagID){
+        final String DELETE_BLOG_TAG = "DELETE FROM blogTags "
+                + "WHERE tagID = ?";
+        jdbc.update(DELETE_BLOG_TAG, tagID);
+
         final String sql = "DELETE FROM Tags WHERE tagID = ?";
         return jdbc.update(sql, tagID) > 0;
         

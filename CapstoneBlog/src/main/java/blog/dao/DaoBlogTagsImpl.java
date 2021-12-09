@@ -46,7 +46,7 @@ public class DaoBlogTagsImpl implements DaoBlogTags{
     
     @Override
     public List<Blog> getAllBlogsWithTag(int tagID){
-        final String sql = "SELECT * FROM blogs INNER JOIN blogstags ON blogstags.blogid = blogs.blogid WHERE tagID = ?";
+        final String sql = "SELECT * FROM blogs INNER JOIN blogtags ON blogtags.blogid = blogs.blogid WHERE tagID = ?";
         return jdbc.query(sql, new BlogMapper(), tagID);
     }
     

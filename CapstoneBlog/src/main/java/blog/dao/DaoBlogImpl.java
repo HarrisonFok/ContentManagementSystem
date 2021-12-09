@@ -20,6 +20,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -92,7 +93,11 @@ public class DaoBlogImpl implements DaoBlog{
     }
     
     @Override
+    @Transactional
     public boolean removeBlog(int blogID){
+        final String DELETE_BLOG_TAG = "DELETE FROM blogtags WHERE blogID = ?";
+        jdbc.update(DELETE_BLOG_TAG, blogID);
+
         final String DELETE_BLOG = "DELETE FROM Blogs WHERE blogID = ?";
         return jdbc.update(DELETE_BLOG, blogID) > 0;
     }
@@ -120,7 +125,7 @@ public class DaoBlogImpl implements DaoBlog{
             newBlog.setUserID(rs.getInt("userID"));
             newBlog.setVisible(rs.getBoolean("visible"));
             newBlog.setDatePosted(rs.getDate("datePost").toLocalDate());
-            newBlog.setDateExpires(rs.getDate("dateExpires").toLocalDate());
+            newBlog.setDateExpires(rs.getDate("dateExpires") != null ? rs.getDate("dateExpires").toLocalDate() : null);
             newBlog.setLikes(rs.getInt("likes"));
             newBlog.setDislikes(rs.getInt("dislikes"));
             return newBlog;
