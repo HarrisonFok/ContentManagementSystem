@@ -95,6 +95,9 @@ public class DaoBlogImpl implements DaoBlog{
     @Override
     @Transactional
     public boolean removeBlog(int blogID){
+        final String DELETE_COMMENTS = "DELETE FROM comments WHERE blogID = ?";
+        jdbc.update(DELETE_COMMENTS, blogID);
+
         final String DELETE_BLOG_TAG = "DELETE FROM blogtags WHERE blogID = ?";
         jdbc.update(DELETE_BLOG_TAG, blogID);
 

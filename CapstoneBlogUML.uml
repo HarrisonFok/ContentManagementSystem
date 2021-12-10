@@ -3,502 +3,838 @@
   <ID>JAVA</ID>
   <OriginalElement>G:/M3/ContentManagementSystem/CapstoneBlog</OriginalElement>
   <nodes>
-    <node x="1088.882284382284" y="782.0">blog.dao.DaoUser</node>
-    <node x="1529.5000000000002" y="1717.0">blog.dao.DaoBlogImpl</node>
-    <node x="696.0" y="2940.0">blog.App</node>
-    <node x="1260.2954545454545" y="0.0">blog.dto.Blog</node>
-    <node x="1706.8333333333335" y="2352.0">blog.controller.ControllerAdmin</node>
-    <node x="2352.2954545454545" y="1717.5">blog.dao.DaoTagImplTest</node>
-    <node x="1871.2954545454545" y="793.5">blog.dao.DaoBlogTags</node>
-    <node x="2846.2954545454545" y="1728.0">blog.dao.DaoTagImpl</node>
-    <node x="792.882284382284" y="771.5">blog.dao.DaoComment</node>
-    <node x="2153.2954545454545" y="782.0">blog.dao.DaoTag</node>
-    <node x="363.7156177156173" y="2517.5">blog.controller.ControllerGeneral</node>
-    <node x="1063.5000000000002" y="1387.0">blog.servicelayer.ServiceLayerImpl</node>
-    <node x="958.2954545454546" y="33.0">blog.dto.User</node>
-    <node x="230.0" y="2940.0">blog.controller.ResponseHandler</node>
-    <node x="890.0" y="2940.0">blog.TestApplicationConfiguration</node>
-    <node x="16.5" y="1717.5">blog.dao.DaoCommentImpl</node>
-    <node x="339.5" y="1728.0">blog.dao.DaoUserImpl</node>
-    <node x="1677.2954545454545" y="77.0">blog.dto.BlogTags</node>
-    <node x="1637.2954545454545" y="771.0">blog.dao.DaoBlog</node>
-    <node x="0.0" y="2940.0">blog.dao.DaoBlogImplTest</node>
-    <node x="2563.2954545454545" y="1739.5">blog.dao.DaoBlogTagsImpl</node>
-    <node x="371.5" y="496.0">blog.servicelayer.ServiceLayer</node>
-    <node x="554.4079254079256" y="55.0">blog.dto.Comment</node>
-    <node x="2156.2954545454545" y="77.0">blog.dto.Tag</node>
-    <node x="719.7156177156174" y="2550.5">blog.controller.ControllerAssistant</node>
+    <node x="1087.0" y="-3132.5">blog.dao.DaoUser</node>
+    <node x="593.0" y="-1966.5">blog.dao.DaoBlogImpl</node>
+    <node x="1865.5" y="-179.5">blog.App</node>
+    <node x="1952.0" y="-1091.5">blog.controller.ControllerAdmin</node>
+    <node x="1801.5" y="-4032.0">blog.dto.Blog</node>
+    <node x="1925.0" y="-1966.0">blog.dao.DaoTagImplTest</node>
+    <node x="1669.0" y="-3132.5">blog.dao.DaoBlogTags</node>
+    <node x="2471.0" y="-1955.5">blog.dao.DaoTagImpl</node>
+    <node x="762.5" y="-3154.5">blog.dao.DaoComment</node>
+    <node x="1971.0" y="-3132.5">blog.dao.DaoTag</node>
+    <node x="1232.0" y="-926.0">blog.controller.ControllerGeneral</node>
+    <node x="279.0" y="-3999.0">blog.dto.User</node>
+    <node x="1177.0" y="-2296.5">blog.servicelayer.ServiceLayerImpl</node>
+    <node x="1409.5" y="-179.5">blog.controller.ResponseHandler</node>
+    <node x="876.5" y="-168.0">blog.TestApplicationConfiguration</node>
+    <node x="908.5" y="-981.0">blog.servicelayer.ServiceLayerImplTest</node>
+    <node x="42.5" y="-1977.5">blog.dao.DaoCommentImpl</node>
+    <node x="367.0" y="-1955.5">blog.dao.DaoUserImpl</node>
+    <node x="2234.0" y="-3955.0">blog.dto.BlogTags</node>
+    <node x="1413.0" y="-3143.5">blog.dao.DaoBlog</node>
+    <node x="43.0" y="-959.0">blog.dao.DaoCommentImplTest</node>
+    <node x="667.5" y="-970.0">blog.dao.DaoBlogImplTest</node>
+    <node x="377.0" y="-937.0">blog.dao.DaoUserImplTest</node>
+    <node x="2329.0" y="-937.5">blog.dao.DaoBlogTagsImpl</node>
+    <node x="437.5" y="-3418.5">blog.servicelayer.ServiceLayer</node>
+    <node x="37.5" y="-3977.0">blog.dto.Comment</node>
+    <node x="2454.0" y="-3955.0">blog.dto.Tag</node>
+    <node x="1153.5" y="-268.0">blog.dao.DaoBlogTagsImplTest</node>
+    <node x="1612.0" y="-893.0">blog.controller.ControllerAssistant</node>
   </nodes>
   <notes />
   <edges>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dto.User" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1255.0" />
-      <point x="1078.382284382284" y="1255.0" />
-      <point x="1078.382284382284" y="455.0" />
-      <point x="1099.2954545454545" y="455.0" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="1060.0" y="-2440.0" />
+      <point x="1060.0" y="-3580.0" />
+      <point x="420.0" y="-3580.0" />
       <point x="0.0" y="139.0" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImpl" target="blog.dao.DaoTagImpl" relationship="TO_ONE">
+      <point x="-120.0" y="-117.5" />
+      <point x="2340.0" y="-1240.0" />
+      <point x="2520.0" y="-1240.0" />
+      <point x="-40.0" y="95.5" />
+    </edge>
+    <edge source="blog.dao.DaoBlogImplTest" target="blog.dao.DaoUserImpl" relationship="DEPENDENCY">
+      <point x="-48.33333333333337" y="-150.0" />
+      <point x="711.6666666666666" y="-1040.0" />
+      <point x="380.0" y="-1040.0" />
+      <point x="380.0" y="-1180.0" />
+      <point x="340.0" y="-1180.0" />
+      <point x="340.0" y="-1320.0" />
+      <point x="220.0" y="-1320.0" />
+      <point x="220.0" y="-1680.0" />
+      <point x="413.5" y="-1680.0" />
+      <point x="-46.5" y="95.5" />
+    </edge>
+    <edge source="blog.dao.DaoCommentImplTest" target="blog.dao.DaoBlogImpl" relationship="TO_ONE">
+      <point x="64.66666666666666" y="-139.0" />
+      <point x="244.66666666666666" y="-1020.0" />
+      <point x="420.0" y="-1020.0" />
+      <point x="420.0" y="-1160.0" />
+      <point x="540.0" y="-1160.0" />
+      <point x="540.0" y="-1300.0" />
+      <point x="1040.0" y="-1300.0" />
+      <point x="1040.0" y="-1700.0" />
+      <point x="753.5" y="-1700.0" />
+      <point x="53.5" y="106.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dto.BlogTags" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1255.0" />
-      <point x="1403.387529137529" y="1255.0" />
-      <point x="1403.387529137529" y="435.0" />
-      <point x="1763.2954545454545" y="435.0" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="1360.0" y="-2440.0" />
+      <point x="1360.0" y="-2560.0" />
+      <point x="1380.0" y="-2560.0" />
+      <point x="1380.0" y="-3160.0" />
+      <point x="1560.0" y="-3160.0" />
+      <point x="1560.0" y="-3560.0" />
+      <point x="2320.0" y="-3560.0" />
       <point x="0.0" y="95.0" />
     </edge>
+    <edge source="blog.dao.DaoBlogTagsImpl" target="blog.dao.DaoBlogImpl" relationship="DEPENDENCY">
+      <point x="40.0" y="-117.5" />
+      <point x="2500.0" y="-1180.0" />
+      <point x="2420.0" y="-1180.0" />
+      <point x="2420.0" y="-1340.0" />
+      <point x="960.0" y="-1340.0" />
+      <point x="960.0" y="-1720.0" />
+      <point x="646.5" y="-1720.0" />
+      <point x="-53.5" y="106.5" />
+    </edge>
     <edge source="blog.dao.DaoTagImplTest" target="blog.dao.DaoBlog" relationship="DEPENDENCY">
-      <point x="-47.5" y="-106.0" />
-      <point x="2399.7954545454545" y="1355.0" />
-      <point x="1627.4079254079256" y="1355.0" />
-      <point x="1627.4079254079256" y="1295.0" />
-      <point x="1670.7954545454545" y="1295.0" />
-      <point x="1670.7954545454545" y="1255.0" />
-      <point x="1672.9621212121215" y="1255.0" />
-      <point x="-71.33333333333326" y="83.5" />
+      <point x="-50.0" y="-106.0" />
+      <point x="1970.0" y="-2360.0" />
+      <point x="1560.0" y="-2360.0" />
+      <point x="1560.0" y="-2440.0" />
+      <point x="1520.0" y="-2440.0" />
+      <point x="0.0" y="83.5" />
     </edge>
     <edge source="blog.controller.ControllerGeneral" target="blog.dto.Comment" relationship="DEPENDENCY">
-      <point x="-84.0" y="-106.0" />
-      <point x="447.7156177156173" y="2331.0" />
-      <point x="6.0" y="2331.0" />
-      <point x="6.0" y="475.0" />
-      <point x="656.9079254079256" y="475.0" />
+      <point x="-120.0" y="-106.0" />
+      <point x="1280.0" y="-1180.0" />
+      <point x="1240.0" y="-1180.0" />
+      <point x="1240.0" y="-1360.0" />
+      <point x="1160.0" y="-1360.0" />
+      <point x="1160.0" y="-1980.0" />
+      <point x="780.0" y="-1980.0" />
+      <point x="780.0" y="-2500.0" />
+      <point x="420.0" y="-2500.0" />
+      <point x="420.0" y="-3080.0" />
+      <point x="300.0" y="-3080.0" />
+      <point x="300.0" y="-3620.0" />
+      <point x="140.0" y="-3620.0" />
       <point x="0.0" y="117.0" />
+    </edge>
+    <edge source="blog.dao.DaoUserImplTest" target="blog.dao.DaoBlogImpl" relationship="DEPENDENCY">
+      <point x="-61.5" y="-117.0" />
+      <point x="438.5" y="-1000.0" />
+      <point x="220.0" y="-1000.0" />
+      <point x="220.0" y="-1180.0" />
+      <point x="260.0" y="-1180.0" />
+      <point x="260.0" y="-1340.0" />
+      <point x="960.0" y="-1340.0" />
+      <point x="960.0" y="-1720.0" />
+      <point x="646.5" y="-1720.0" />
+      <point x="-53.5" y="106.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayer" target="blog.dto.Blog" relationship="DEPENDENCY">
       <point x="0.0" y="-358.5" />
-      <point x="514.0" y="465.0" />
-      <point x="1268.0454545454545" y="465.0" />
-      <point x="1268.0454545454545" y="385.0" />
-      <point x="1458.7954545454545" y="385.0" />
+      <point x="580.0" y="-3460.0" />
+      <point x="1140.0" y="-3460.0" />
+      <point x="1140.0" y="-3520.0" />
+      <point x="1220.0" y="-3520.0" />
+      <point x="1220.0" y="-3600.0" />
+      <point x="2000.0" y="-3600.0" />
       <point x="0.0" y="172.0" />
     </edge>
     <edge source="blog.dao.DaoUserImpl" target="blog.dto.User" relationship="DEPENDENCY">
-      <point x="-46.5" y="-95.5" />
-      <point x="386.0" y="1345.0" />
-      <point x="361.0" y="1345.0" />
-      <point x="361.0" y="455.0" />
-      <point x="1099.2954545454545" y="455.0" />
+      <point x="-48.666666666666686" y="-95.5" />
+      <point x="411.3333333333333" y="-2000.0" />
+      <point x="340.0" y="-2000.0" />
+      <point x="340.0" y="-3580.0" />
+      <point x="420.0" y="-3580.0" />
       <point x="0.0" y="139.0" />
     </edge>
     <edge source="blog.dao.DaoUserImpl" target="blog.dao.DaoUser" relationship="REALIZATION">
-      <point x="46.5" y="-95.5" />
-      <point x="479.0" y="1365.0" />
-      <point x="1119.882284382284" y="1365.0" />
+      <point x="40.0" y="-95.5" />
+      <point x="500.0" y="-2620.0" />
+      <point x="1118.0" y="-2620.0" />
       <point x="-62.0" y="72.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoUser" relationship="TO_ONE">
       <point x="148.66666666666674" y="-436.5" />
-      <point x="1435.166666666667" y="1365.0" />
-      <point x="1776.4079254079256" y="1365.0" />
-      <point x="1776.4079254079256" y="1265.0" />
-      <point x="1243.882284382284" y="1265.0" />
+      <point x="1548.6666666666667" y="-2340.0" />
+      <point x="1760.0" y="-2340.0" />
+      <point x="1760.0" y="-2420.0" />
+      <point x="1700.0" y="-2420.0" />
+      <point x="1700.0" y="-2540.0" />
+      <point x="1242.0" y="-2540.0" />
       <point x="62.0" y="72.5" />
     </edge>
     <edge source="blog.controller.ControllerGeneral" target="blog.servicelayer.ServiceLayerImpl" relationship="DEPENDENCY">
-      <point x="-84.0" y="-106.0" />
-      <point x="447.7156177156173" y="2331.0" />
-      <point x="6.0" y="2331.0" />
-      <point x="6.0" y="2301.0" />
-      <point x="1118.5" y="2301.0" />
-      <point x="1118.5" y="2281.0" />
-      <point x="1175.0000000000002" y="2281.0" />
-      <point x="-111.5" y="436.5" />
+      <point x="-120.0" y="-106.0" />
+      <point x="-120.0" y="436.5" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImplTest" target="blog.dao.DaoUserImpl" relationship="TO_ONE">
+      <point x="-60.0" y="-128.0" />
+      <point x="1200.0" y="-340.0" />
+      <point x="340.0" y="-340.0" />
+      <point x="340.0" y="-980.0" />
+      <point x="300.0" y="-980.0" />
+      <point x="300.0" y="-1280.0" />
+      <point x="1000.0" y="-1280.0" />
+      <point x="1000.0" y="-1680.0" />
+      <point x="506.5" y="-1680.0" />
+      <point x="46.5" y="95.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoComment" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1255.0" />
-      <point x="930.382284382284" y="1255.0" />
-      <point x="0.0" y="83.0" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="900.0" y="-2440.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+    <edge source="blog.dao.DaoCommentImplTest" target="blog.dao.DaoCommentImpl" relationship="DEPENDENCY">
+      <point x="-80.0" y="-139.0" />
+      <point x="100.0" y="-1180.0" />
+      <point x="60.0" y="-1180.0" />
+      <point x="60.0" y="-1220.0" />
+      <point x="120.0" y="-1220.0" />
+      <point x="-60.0" y="117.5" />
     </edge>
     <edge source="blog.dao.DaoBlogTagsImpl" target="blog.dto.BlogTags" relationship="DEPENDENCY">
-      <point x="65.5" y="-84.0" />
-      <point x="2759.7954545454545" y="1365.0" />
-      <point x="2704.8333333333335" y="1365.0" />
-      <point x="2704.8333333333335" y="435.0" />
-      <point x="1763.2954545454545" y="435.0" />
+      <point x="40.0" y="-117.5" />
+      <point x="2500.0" y="-1180.0" />
+      <point x="2460.0" y="-1180.0" />
+      <point x="2460.0" y="-1720.0" />
+      <point x="2400.0" y="-1720.0" />
+      <point x="2400.0" y="-3560.0" />
+      <point x="2320.0" y="-3560.0" />
       <point x="0.0" y="95.0" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayer" target="blog.dto.Tag" relationship="DEPENDENCY">
       <point x="0.0" y="-358.5" />
-      <point x="514.0" y="465.0" />
-      <point x="1268.0454545454545" y="465.0" />
-      <point x="1268.0454545454545" y="405.0" />
-      <point x="2242.2954545454545" y="405.0" />
+      <point x="580.0" y="-3460.0" />
+      <point x="1140.0" y="-3460.0" />
+      <point x="1140.0" y="-3520.0" />
+      <point x="1300.0" y="-3520.0" />
+      <point x="1300.0" y="-3620.0" />
+      <point x="2540.0" y="-3620.0" />
       <point x="0.0" y="95.0" />
     </edge>
+    <edge source="blog.dao.DaoCommentImplTest" target="blog.dao.DaoCommentImpl" relationship="TO_ONE">
+      <point x="64.66666666666666" y="-139.0" />
+      <point x="244.66666666666666" y="-1020.0" />
+      <point x="420.0" y="-1020.0" />
+      <point x="420.0" y="-1700.0" />
+      <point x="251.66666666666666" y="-1700.0" />
+      <point x="71.66666666666666" y="117.5" />
+    </edge>
+    <edge source="blog.dao.DaoCommentImplTest" target="blog.dao.DaoUserImpl" relationship="DEPENDENCY">
+      <point x="-80.0" y="-139.0" />
+      <point x="100.0" y="-1320.0" />
+      <point x="220.0" y="-1320.0" />
+      <point x="220.0" y="-1680.0" />
+      <point x="413.5" y="-1680.0" />
+      <point x="-46.5" y="95.5" />
+    </edge>
     <edge source="blog.controller.ControllerAdmin" target="blog.dto.User" relationship="DEPENDENCY">
-      <point x="84.0" y="-271.5" />
-      <point x="1958.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2281.0" />
-      <point x="2341.7954545454545" y="2281.0" />
-      <point x="2341.7954545454545" y="455.0" />
-      <point x="1099.2954545454545" y="455.0" />
+      <point x="80.0" y="-271.5" />
+      <point x="2200.0" y="-1180.0" />
+      <point x="2240.0" y="-1180.0" />
+      <point x="2240.0" y="-1360.0" />
+      <point x="2300.0" y="-1360.0" />
+      <point x="2300.0" y="-3580.0" />
+      <point x="420.0" y="-3580.0" />
       <point x="0.0" y="139.0" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImplTest" target="blog.dao.DaoTagImpl" relationship="TO_ONE">
+      <point x="-60.0" y="-128.0" />
+      <point x="1200.0" y="-340.0" />
+      <point x="1280.0" y="-340.0" />
+      <point x="1280.0" y="-440.0" />
+      <point x="2620.0" y="-440.0" />
+      <point x="2620.0" y="-1240.0" />
+      <point x="2520.0" y="-1240.0" />
+      <point x="-40.0" y="95.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayer" target="blog.dto.BlogTags" relationship="DEPENDENCY">
       <point x="0.0" y="-358.5" />
-      <point x="514.0" y="465.0" />
-      <point x="1268.0454545454545" y="465.0" />
-      <point x="1268.0454545454545" y="395.0" />
-      <point x="1763.2954545454545" y="395.0" />
+      <point x="580.0" y="-3460.0" />
+      <point x="1140.0" y="-3460.0" />
+      <point x="1140.0" y="-3520.0" />
+      <point x="1260.0" y="-3520.0" />
+      <point x="1260.0" y="-3560.0" />
+      <point x="2320.0" y="-3560.0" />
       <point x="0.0" y="95.0" />
     </edge>
+    <edge source="blog.dao.DaoUserImplTest" target="blog.dao.DaoCommentImpl" relationship="DEPENDENCY">
+      <point x="-61.5" y="-117.0" />
+      <point x="438.5" y="-1000.0" />
+      <point x="220.0" y="-1000.0" />
+      <point x="220.0" y="-1180.0" />
+      <point x="180.0" y="-1180.0" />
+      <point x="180.0" y="-1220.0" />
+      <point x="120.0" y="-1220.0" />
+      <point x="-60.0" y="117.5" />
+    </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.servicelayer.ServiceLayer" relationship="REALIZATION">
-      <point x="-148.66666666666674" y="-436.5" />
-      <point x="1137.8333333333335" y="1345.0" />
-      <point x="514.0" y="1345.0" />
+      <point x="-140.0" y="-436.5" />
+      <point x="1260.0" y="-2340.0" />
+      <point x="820.0" y="-2340.0" />
+      <point x="820.0" y="-2520.0" />
+      <point x="580.0" y="-2520.0" />
       <point x="0.0" y="358.5" />
+    </edge>
+    <edge source="blog.dao.DaoBlogImplTest" target="blog.dao.DaoBlogImpl" relationship="DEPENDENCY">
+      <point x="-48.33333333333337" y="-150.0" />
+      <point x="711.6666666666666" y="-1040.0" />
+      <point x="380.0" y="-1040.0" />
+      <point x="380.0" y="-1340.0" />
+      <point x="960.0" y="-1340.0" />
+      <point x="960.0" y="-1720.0" />
+      <point x="646.5" y="-1720.0" />
+      <point x="-53.5" y="106.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoTag" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1325.0" />
-      <point x="1695.7954545454545" y="1325.0" />
-      <point x="1695.7954545454545" y="1245.0" />
-      <point x="2182.962121212121" y="1245.0" />
-      <point x="-59.333333333333485" y="72.5" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="1480.0" y="-2440.0" />
+      <point x="1480.0" y="-2480.0" />
+      <point x="1600.0" y="-2480.0" />
+      <point x="1600.0" y="-2940.0" />
+      <point x="2000.6666666666667" y="-2940.0" />
+      <point x="-59.33333333333326" y="72.5" />
     </edge>
     <edge source="blog.dao.DaoBlogTags" target="blog.dto.Tag" relationship="DEPENDENCY">
-      <point x="2.2737367544323206E-13" y="-61.0" />
-      <point x="2002.295454545455" y="475.0" />
-      <point x="1763.2954545454545" y="475.0" />
-      <point x="1763.2954545454545" y="415.0" />
-      <point x="2242.2954545454545" y="415.0" />
+      <point x="0.0" y="-72.5" />
+      <point x="1800.0" y="-3620.0" />
+      <point x="2540.0" y="-3620.0" />
       <point x="0.0" y="95.0" />
     </edge>
     <edge source="blog.dao.DaoCommentImpl" target="blog.dto.Comment" relationship="DEPENDENCY">
-      <point x="-68.75" y="-106.0" />
-      <point x="85.25" y="1365.0" />
-      <point x="141.128787878788" y="1365.0" />
-      <point x="141.128787878788" y="475.0" />
-      <point x="656.9079254079256" y="475.0" />
+      <point x="-40.0" y="-117.5" />
       <point x="0.0" y="117.0" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImplTest" target="blog.dao.DaoBlogImpl" relationship="TO_ONE">
+      <point x="-60.0" y="-128.0" />
+      <point x="1200.0" y="-1300.0" />
+      <point x="1040.0" y="-1300.0" />
+      <point x="1040.0" y="-1700.0" />
+      <point x="753.5" y="-1700.0" />
+      <point x="53.5" y="106.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoBlogTags" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1305.0" />
-      <point x="1680.7954545454545" y="1305.0" />
-      <point x="1680.7954545454545" y="1255.0" />
-      <point x="1914.9621212121215" y="1255.0" />
-      <point x="-87.33333333333326" y="61.0" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="1440.0" y="-2440.0" />
+      <point x="1440.0" y="-2520.0" />
+      <point x="1560.0" y="-2520.0" />
+      <point x="1560.0" y="-2900.0" />
+      <point x="1719.3333333333333" y="-2900.0" />
+      <point x="-80.66666666666674" y="72.5" />
     </edge>
     <edge source="blog.dao.DaoUser" target="blog.dto.User" relationship="DEPENDENCY">
-      <point x="0.0" y="-72.5" />
-      <point x="1181.882284382284" y="455.0" />
-      <point x="1099.2954545454545" y="455.0" />
+      <point x="-80.0" y="-72.5" />
+      <point x="1100.0" y="-3580.0" />
+      <point x="420.0" y="-3580.0" />
       <point x="0.0" y="139.0" />
     </edge>
     <edge source="blog.dao.DaoBlog" target="blog.dto.Blog" relationship="DEPENDENCY">
       <point x="0.0" y="-83.5" />
-      <point x="1744.2954545454545" y="445.0" />
-      <point x="1458.7954545454545" y="445.0" />
+      <point x="1520.0" y="-3600.0" />
+      <point x="2000.0" y="-3600.0" />
       <point x="0.0" y="172.0" />
     </edge>
+    <edge source="blog.servicelayer.ServiceLayerImplTest" target="blog.dao.DaoUserImpl" relationship="TO_ONE">
+      <point x="60.0" y="-161.0" />
+      <point x="1100.0" y="-1160.0" />
+      <point x="1040.0" y="-1160.0" />
+      <point x="1040.0" y="-1280.0" />
+      <point x="1000.0" y="-1280.0" />
+      <point x="1000.0" y="-1680.0" />
+      <point x="506.5" y="-1680.0" />
+      <point x="46.5" y="95.5" />
+    </edge>
     <edge source="blog.controller.ControllerAdmin" target="blog.servicelayer.ServiceLayerImpl" relationship="TO_ONE">
-      <point x="-84.0" y="-271.5" />
-      <point x="1790.8333333333335" y="2321.0" />
-      <point x="1291.5000000000002" y="2321.0" />
-      <point x="1291.5000000000002" y="2281.0" />
-      <point x="1398.0000000000002" y="2281.0" />
-      <point x="111.5" y="436.5" />
+      <point x="-80.0" y="-271.5" />
+      <point x="2040.0" y="-1240.0" />
+      <point x="1520.0" y="-1240.0" />
+      <point x="120.0" y="436.5" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImpl" target="blog.dao.DaoTagImpl" relationship="DEPENDENCY">
+      <point x="40.0" y="-117.5" />
+      <point x="2500.0" y="-1180.0" />
+      <point x="2540.0" y="-1180.0" />
+      <point x="2540.0" y="-1220.0" />
+      <point x="2600.0" y="-1220.0" />
+      <point x="40.0" y="95.5" />
     </edge>
     <edge source="blog.dao.DaoBlogTags" target="blog.dto.BlogTags" relationship="DEPENDENCY">
-      <point x="2.2737367544323206E-13" y="-61.0" />
-      <point x="2002.295454545455" y="475.0" />
-      <point x="1763.2954545454545" y="475.0" />
+      <point x="0.0" y="-72.5" />
+      <point x="1800.0" y="-3520.0" />
+      <point x="1760.0" y="-3520.0" />
+      <point x="1760.0" y="-3560.0" />
+      <point x="2320.0" y="-3560.0" />
       <point x="0.0" y="95.0" />
+    </edge>
+    <edge source="blog.dao.DaoBlogImplTest" target="blog.dao.DaoUserImpl" relationship="TO_ONE">
+      <point x="40.0" y="-150.0" />
+      <point x="800.0" y="-1160.0" />
+      <point x="780.0" y="-1160.0" />
+      <point x="780.0" y="-1280.0" />
+      <point x="1000.0" y="-1280.0" />
+      <point x="1000.0" y="-1680.0" />
+      <point x="506.5" y="-1680.0" />
+      <point x="46.5" y="95.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dto.Tag" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1255.0" />
-      <point x="1488.2954545454545" y="1255.0" />
-      <point x="1488.2954545454545" y="425.0" />
-      <point x="2242.2954545454545" y="425.0" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="1280.0" y="-2440.0" />
+      <point x="1280.0" y="-2600.0" />
+      <point x="1300.0" y="-2600.0" />
+      <point x="1300.0" y="-3180.0" />
+      <point x="1840.0" y="-3180.0" />
+      <point x="1840.0" y="-3620.0" />
+      <point x="2540.0" y="-3620.0" />
       <point x="0.0" y="95.0" />
     </edge>
     <edge source="blog.dao.DaoTagImpl" target="blog.dto.Tag" relationship="DEPENDENCY">
-      <point x="44.5" y="-95.5" />
-      <point x="2979.7954545454545" y="1365.0" />
-      <point x="2940.5454545454545" y="1365.0" />
-      <point x="2940.5454545454545" y="425.0" />
-      <point x="2242.2954545454545" y="425.0" />
+      <point x="-40.0" y="-95.5" />
+      <point x="2520.0" y="-3620.0" />
+      <point x="2540.0" y="-3620.0" />
       <point x="0.0" y="95.0" />
     </edge>
     <edge source="blog.dao.DaoTagImplTest" target="blog.dao.DaoTag" relationship="TO_ONE">
-      <point x="47.5" y="-106.0" />
-      <point x="2494.7954545454545" y="1345.0" />
-      <point x="1998.2954545454545" y="1345.0" />
-      <point x="1998.2954545454545" y="1335.0" />
-      <point x="2242.2954545454545" y="1335.0" />
+      <point x="40.0" y="-106.0" />
       <point x="0.0" y="72.5" />
     </edge>
     <edge source="blog.dao.DaoTagImplTest" target="blog.dao.DaoBlogTags" relationship="TO_ONE">
-      <point x="47.5" y="-106.0" />
-      <point x="2494.7954545454545" y="1345.0" />
-      <point x="1998.2954545454545" y="1345.0" />
-      <point x="1998.2954545454545" y="1315.0" />
-      <point x="2002.2954545454545" y="1315.0" />
-      <point x="0.0" y="61.0" />
+      <point x="40.0" y="-106.0" />
+      <point x="2060.0" y="-2420.0" />
+      <point x="2000.0" y="-2420.0" />
+      <point x="2000.0" y="-2540.0" />
+      <point x="1820.0" y="-2540.0" />
+      <point x="20.0" y="72.5" />
     </edge>
     <edge source="blog.dao.DaoTag" target="blog.dto.Tag" relationship="DEPENDENCY">
       <point x="0.0" y="-72.5" />
+      <point x="2060.0" y="-3620.0" />
+      <point x="2540.0" y="-3620.0" />
       <point x="0.0" y="95.0" />
     </edge>
     <edge source="blog.controller.ControllerAssistant" target="blog.servicelayer.ServiceLayerImpl" relationship="DEPENDENCY">
-      <point x="-74.0" y="-73.0" />
-      <point x="793.7156177156174" y="2331.0" />
-      <point x="699.7156177156173" y="2331.0" />
-      <point x="699.7156177156173" y="2311.0" />
-      <point x="1118.5" y="2311.0" />
-      <point x="1118.5" y="2281.0" />
-      <point x="1175.0000000000002" y="2281.0" />
-      <point x="-111.5" y="436.5" />
+      <point x="-80.0" y="-73.0" />
+      <point x="1680.0" y="-1260.0" />
+      <point x="1280.0" y="-1260.0" />
+      <point x="-120.0" y="436.5" />
+    </edge>
+    <edge source="blog.servicelayer.ServiceLayerImplTest" target="blog.dao.DaoBlogImpl" relationship="DEPENDENCY">
+      <point x="-80.0" y="-161.0" />
+      <point x="960.0" y="-1720.0" />
+      <point x="646.5" y="-1720.0" />
+      <point x="-53.5" y="106.5" />
     </edge>
     <edge source="blog.dao.DaoBlogImpl" target="blog.dto.Blog" relationship="DEPENDENCY">
-      <point x="-53.5" y="-106.5" />
-      <point x="1583.0000000000002" y="1275.0" />
-      <point x="1626.7954545454545" y="1275.0" />
-      <point x="1626.7954545454545" y="445.0" />
-      <point x="1458.7954545454545" y="445.0" />
+      <point x="-58.0" y="-106.5" />
+      <point x="642.0" y="-2000.0" />
+      <point x="540.0" y="-2000.0" />
+      <point x="540.0" y="-2480.0" />
+      <point x="380.0" y="-2480.0" />
+      <point x="380.0" y="-3440.0" />
+      <point x="420.0" y="-3440.0" />
+      <point x="420.0" y="-3600.0" />
+      <point x="2000.0" y="-3600.0" />
       <point x="0.0" y="172.0" />
     </edge>
+    <edge source="blog.dao.DaoBlogTagsImplTest" target="blog.dao.DaoUserImpl" relationship="DEPENDENCY">
+      <point x="60.0" y="-128.0" />
+      <point x="1320.0" y="-420.0" />
+      <point x="20.0" y="-420.0" />
+      <point x="20.0" y="-1320.0" />
+      <point x="220.0" y="-1320.0" />
+      <point x="220.0" y="-1680.0" />
+      <point x="413.5" y="-1680.0" />
+      <point x="-46.5" y="95.5" />
+    </edge>
     <edge source="blog.controller.ControllerGeneral" target="blog.servicelayer.ServiceLayerImpl" relationship="TO_ONE">
-      <point x="84.0" y="-106.0" />
-      <point x="615.7156177156173" y="2321.0" />
-      <point x="1291.5000000000002" y="2321.0" />
-      <point x="1291.5000000000002" y="2281.0" />
-      <point x="1398.0000000000002" y="2281.0" />
-      <point x="111.5" y="436.5" />
+      <point x="80.0" y="-106.0" />
+      <point x="1480.0" y="-960.0" />
+      <point x="1520.0" y="-960.0" />
+      <point x="120.0" y="436.5" />
     </edge>
     <edge source="blog.dao.DaoTagImpl" target="blog.dao.DaoTag" relationship="REALIZATION">
-      <point x="-44.5" y="-95.5" />
-      <point x="2890.7954545454545" y="1305.0" />
-      <point x="2301.628787878788" y="1305.0" />
+      <point x="40.0" y="-95.5" />
+      <point x="2600.0" y="-2600.0" />
+      <point x="2119.3333333333335" y="-2600.0" />
       <point x="59.333333333333485" y="72.5" />
     </edge>
+    <edge source="blog.dao.DaoUserImplTest" target="blog.dao.DaoBlogImpl" relationship="TO_ONE">
+      <point x="61.5" y="-117.0" />
+      <point x="561.5" y="-980.0" />
+      <point x="660.0" y="-980.0" />
+      <point x="660.0" y="-1160.0" />
+      <point x="720.0" y="-1160.0" />
+      <point x="720.0" y="-1300.0" />
+      <point x="1040.0" y="-1300.0" />
+      <point x="1040.0" y="-1700.0" />
+      <point x="753.5" y="-1700.0" />
+      <point x="53.5" y="106.5" />
+    </edge>
     <edge source="blog.controller.ControllerAdmin" target="blog.dto.Blog" relationship="DEPENDENCY">
-      <point x="84.0" y="-271.5" />
-      <point x="1958.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2281.0" />
-      <point x="2552.7954545454545" y="2281.0" />
-      <point x="2552.7954545454545" y="445.0" />
-      <point x="1458.7954545454545" y="445.0" />
+      <point x="80.0" y="-271.5" />
+      <point x="2200.0" y="-1840.0" />
+      <point x="2220.0" y="-1840.0" />
+      <point x="2220.0" y="-2580.0" />
+      <point x="2260.0" y="-2580.0" />
+      <point x="2260.0" y="-3600.0" />
+      <point x="2000.0" y="-3600.0" />
       <point x="0.0" y="172.0" />
     </edge>
     <edge source="blog.dao.DaoTagImplTest" target="blog.dao.DaoBlog" relationship="TO_ONE">
-      <point x="47.5" y="-106.0" />
-      <point x="2494.7954545454545" y="1345.0" />
-      <point x="1998.2954545454545" y="1345.0" />
-      <point x="1998.2954545454545" y="1285.0" />
-      <point x="1873.2954545454545" y="1285.0" />
-      <point x="1873.2954545454545" y="1235.0" />
-      <point x="1815.628787878788" y="1235.0" />
+      <point x="40.0" y="-106.0" />
+      <point x="2060.0" y="-2420.0" />
+      <point x="1940.0" y="-2420.0" />
+      <point x="1940.0" y="-2500.0" />
+      <point x="1760.0" y="-2500.0" />
+      <point x="1760.0" y="-2920.0" />
+      <point x="1591.3333333333333" y="-2920.0" />
       <point x="71.33333333333326" y="83.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoBlog" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1285.0" />
-      <point x="1670.7954545454545" y="1285.0" />
-      <point x="1670.7954545454545" y="1255.0" />
-      <point x="1672.9621212121215" y="1255.0" />
-      <point x="-71.33333333333326" y="83.5" />
+      <point x="1400.0" y="-2560.0" />
+      <point x="1520.0" y="-2560.0" />
+      <point x="0.0" y="83.5" />
     </edge>
     <edge source="blog.dao.DaoBlogTagsImpl" target="blog.dto.Blog" relationship="DEPENDENCY">
-      <point x="65.5" y="-84.0" />
-      <point x="2759.7954545454545" y="1365.0" />
-      <point x="2704.8333333333335" y="1365.0" />
-      <point x="2704.8333333333335" y="1295.0" />
-      <point x="2692.137529137529" y="1295.0" />
-      <point x="2692.137529137529" y="445.0" />
-      <point x="1458.7954545454545" y="445.0" />
+      <point x="40.0" y="-117.5" />
+      <point x="2500.0" y="-1740.0" />
+      <point x="2440.0" y="-1740.0" />
+      <point x="2440.0" y="-3600.0" />
+      <point x="2000.0" y="-3600.0" />
       <point x="0.0" y="172.0" />
+    </edge>
+    <edge source="blog.servicelayer.ServiceLayerImplTest" target="blog.servicelayer.ServiceLayerImpl" relationship="DEPENDENCY">
+      <point x="-80.0" y="-161.0" />
+      <point x="960.0" y="-1180.0" />
+      <point x="1000.0" y="-1180.0" />
+      <point x="1000.0" y="-1260.0" />
+      <point x="1280.0" y="-1260.0" />
+      <point x="-120.0" y="436.5" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImpl" target="blog.dao.DaoBlogImpl" relationship="TO_ONE">
+      <point x="-120.0" y="-117.5" />
+      <point x="2340.0" y="-1160.0" />
+      <point x="2280.0" y="-1160.0" />
+      <point x="2280.0" y="-1300.0" />
+      <point x="1040.0" y="-1300.0" />
+      <point x="1040.0" y="-1700.0" />
+      <point x="753.5" y="-1700.0" />
+      <point x="53.5" y="106.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoBlogTags" relationship="TO_ONE">
       <point x="148.66666666666674" y="-436.5" />
-      <point x="1435.166666666667" y="1365.0" />
-      <point x="1776.4079254079256" y="1365.0" />
-      <point x="1776.4079254079256" y="1305.0" />
-      <point x="2002.2954545454545" y="1305.0" />
-      <point x="0.0" y="61.0" />
+      <point x="1548.6666666666667" y="-2340.0" />
+      <point x="1760.0" y="-2340.0" />
+      <point x="1760.0" y="-2420.0" />
+      <point x="1820.0" y="-2420.0" />
+      <point x="20.0" y="72.5" />
     </edge>
     <edge source="blog.dao.DaoBlogTagsImpl" target="blog.dao.DaoBlogTags" relationship="REALIZATION">
-      <point x="-65.5" y="-84.0" />
-      <point x="2628.7954545454545" y="1315.0" />
-      <point x="2089.628787878788" y="1315.0" />
-      <point x="87.33333333333348" y="61.0" />
+      <point x="-80.0" y="-117.5" />
+      <point x="2380.0" y="-1380.0" />
+      <point x="2260.0" y="-1380.0" />
+      <point x="2260.0" y="-2560.0" />
+      <point x="1894.0" y="-2560.0" />
+      <point x="94.0" y="72.5" />
     </edge>
     <edge source="blog.dao.DaoBlogImpl" target="blog.dao.DaoBlog" relationship="REALIZATION">
-      <point x="53.5" y="-106.5" />
-      <point x="1690.0000000000002" y="1345.0" />
-      <point x="1744.2954545454545" y="1345.0" />
-      <point x="0.0" y="83.5" />
+      <point x="40.0" y="-106.5" />
+      <point x="740.0" y="-2580.0" />
+      <point x="1448.6666666666667" y="-2580.0" />
+      <point x="-71.33333333333326" y="83.5" />
+    </edge>
+    <edge source="blog.dao.DaoCommentImplTest" target="blog.dao.DaoBlogImpl" relationship="DEPENDENCY">
+      <point x="-80.0" y="-139.0" />
+      <point x="100.0" y="-1180.0" />
+      <point x="140.0" y="-1180.0" />
+      <point x="140.0" y="-1340.0" />
+      <point x="960.0" y="-1340.0" />
+      <point x="960.0" y="-1720.0" />
+      <point x="646.5" y="-1720.0" />
+      <point x="-53.5" y="106.5" />
     </edge>
     <edge source="blog.dao.DaoBlogTags" target="blog.dto.Blog" relationship="DEPENDENCY">
-      <point x="2.2737367544323206E-13" y="-61.0" />
-      <point x="2002.295454545455" y="475.0" />
-      <point x="1763.2954545454545" y="475.0" />
-      <point x="1763.2954545454545" y="375.0" />
-      <point x="1458.7954545454545" y="375.0" />
+      <point x="0.0" y="-72.5" />
+      <point x="1800.0" y="-3520.0" />
+      <point x="1720.0" y="-3520.0" />
+      <point x="1720.0" y="-3600.0" />
+      <point x="2000.0" y="-3600.0" />
       <point x="0.0" y="172.0" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayer" target="blog.dto.Comment" relationship="DEPENDENCY">
       <point x="0.0" y="-358.5" />
-      <point x="514.0" y="465.0" />
-      <point x="1268.0454545454545" y="465.0" />
-      <point x="1268.0454545454545" y="375.0" />
-      <point x="656.9079254079256" y="375.0" />
+      <point x="580.0" y="-3460.0" />
+      <point x="1140.0" y="-3460.0" />
+      <point x="1140.0" y="-3620.0" />
+      <point x="140.0" y="-3620.0" />
       <point x="0.0" y="117.0" />
     </edge>
     <edge source="blog.controller.ControllerAssistant" target="blog.dto.Blog" relationship="DEPENDENCY">
-      <point x="-74.0" y="-73.0" />
-      <point x="793.7156177156174" y="2331.0" />
-      <point x="699.7156177156173" y="2331.0" />
-      <point x="699.7156177156173" y="2291.0" />
-      <point x="327.0" y="2291.0" />
-      <point x="327.0" y="445.0" />
-      <point x="1458.7954545454545" y="445.0" />
+      <point x="-80.0" y="-73.0" />
+      <point x="1680.0" y="-1180.0" />
+      <point x="1800.0" y="-1180.0" />
+      <point x="1800.0" y="-1740.0" />
+      <point x="2140.0" y="-1740.0" />
+      <point x="2140.0" y="-2640.0" />
+      <point x="2180.0" y="-2640.0" />
+      <point x="2180.0" y="-3600.0" />
+      <point x="2000.0" y="-3600.0" />
       <point x="0.0" y="172.0" />
     </edge>
+    <edge source="blog.dao.DaoUserImplTest" target="blog.dao.DaoUserImpl" relationship="DEPENDENCY">
+      <point x="-61.5" y="-117.0" />
+      <point x="438.5" y="-1000.0" />
+      <point x="220.0" y="-1000.0" />
+      <point x="220.0" y="-1680.0" />
+      <point x="413.5" y="-1680.0" />
+      <point x="-46.5" y="95.5" />
+    </edge>
+    <edge source="blog.dao.DaoUserImplTest" target="blog.dao.DaoCommentImpl" relationship="TO_ONE">
+      <point x="61.5" y="-117.0" />
+      <point x="561.5" y="-980.0" />
+      <point x="660.0" y="-980.0" />
+      <point x="660.0" y="-1160.0" />
+      <point x="600.0" y="-1160.0" />
+      <point x="600.0" y="-1360.0" />
+      <point x="420.0" y="-1360.0" />
+      <point x="420.0" y="-1700.0" />
+      <point x="251.66666666666666" y="-1700.0" />
+      <point x="71.66666666666666" y="117.5" />
+    </edge>
     <edge source="blog.dao.DaoBlogTagsImpl" target="blog.dto.Tag" relationship="DEPENDENCY">
-      <point x="65.5" y="-84.0" />
-      <point x="2759.7954545454545" y="1365.0" />
-      <point x="2704.8333333333335" y="1365.0" />
-      <point x="2704.8333333333335" y="1295.0" />
-      <point x="2720.913170163171" y="1295.0" />
-      <point x="2720.913170163171" y="425.0" />
-      <point x="2242.2954545454545" y="425.0" />
+      <point x="40.0" y="-117.5" />
+      <point x="2500.0" y="-1180.0" />
+      <point x="2580.0" y="-1180.0" />
+      <point x="2580.0" y="-1260.0" />
+      <point x="2680.0" y="-1260.0" />
+      <point x="2680.0" y="-1980.0" />
+      <point x="2660.0" y="-1980.0" />
+      <point x="2660.0" y="-3620.0" />
+      <point x="2540.0" y="-3620.0" />
       <point x="0.0" y="95.0" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImplTest" target="blog.dao.DaoBlogTagsImpl" relationship="DEPENDENCY">
+      <point x="60.0" y="-128.0" />
+      <point x="1320.0" y="-360.0" />
+      <point x="2520.0" y="-360.0" />
+      <point x="60.0" y="117.5" />
+    </edge>
+    <edge source="blog.dao.DaoUserImplTest" target="blog.dao.DaoUserImpl" relationship="TO_ONE">
+      <point x="61.5" y="-117.0" />
+      <point x="561.5" y="-980.0" />
+      <point x="660.0" y="-980.0" />
+      <point x="660.0" y="-1280.0" />
+      <point x="1000.0" y="-1280.0" />
+      <point x="1000.0" y="-1680.0" />
+      <point x="506.5" y="-1680.0" />
+      <point x="46.5" y="95.5" />
+    </edge>
+    <edge source="blog.dao.DaoCommentImplTest" target="blog.dao.DaoUserImpl" relationship="TO_ONE">
+      <point x="64.66666666666666" y="-139.0" />
+      <point x="244.66666666666666" y="-1020.0" />
+      <point x="420.0" y="-1020.0" />
+      <point x="420.0" y="-1160.0" />
+      <point x="480.0" y="-1160.0" />
+      <point x="480.0" y="-1280.0" />
+      <point x="1000.0" y="-1280.0" />
+      <point x="1000.0" y="-1680.0" />
+      <point x="506.5" y="-1680.0" />
+      <point x="46.5" y="95.5" />
+    </edge>
+    <edge source="blog.controller.ControllerAdmin" target="blog.servicelayer.ServiceLayerImpl" relationship="DEPENDENCY">
+      <point x="80.0" y="-271.5" />
+      <point x="2200.0" y="-1180.0" />
+      <point x="2120.0" y="-1180.0" />
+      <point x="2120.0" y="-1260.0" />
+      <point x="1280.0" y="-1260.0" />
+      <point x="-120.0" y="436.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoComment" relationship="TO_ONE">
       <point x="148.66666666666674" y="-436.5" />
-      <point x="1435.166666666667" y="1365.0" />
-      <point x="1776.4079254079256" y="1365.0" />
-      <point x="1776.4079254079256" y="1265.0" />
-      <point x="1022.0489510489507" y="1265.0" />
-      <point x="91.66666666666674" y="83.0" />
-    </edge>
-    <edge source="blog.controller.ControllerAdmin" target="blog.servicelayer.ServiceLayerImpl" relationship="DEPENDENCY">
-      <point x="84.0" y="-271.5" />
-      <point x="1958.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2291.0" />
-      <point x="1118.5" y="2291.0" />
-      <point x="1118.5" y="2281.0" />
-      <point x="1175.0000000000002" y="2281.0" />
-      <point x="-111.5" y="436.5" />
+      <point x="1548.6666666666667" y="-2340.0" />
+      <point x="1760.0" y="-2340.0" />
+      <point x="1760.0" y="-2420.0" />
+      <point x="1640.0" y="-2420.0" />
+      <point x="1640.0" y="-2500.0" />
+      <point x="991.6666666666666" y="-2500.0" />
+      <point x="91.66666666666663" y="94.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dto.Blog" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1255.0" />
-      <point x="1320.0454545454545" y="1255.0" />
-      <point x="1320.0454545454545" y="445.0" />
-      <point x="1458.7954545454545" y="445.0" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="1320.0" y="-2440.0" />
+      <point x="1320.0" y="-2600.0" />
+      <point x="1340.0" y="-2600.0" />
+      <point x="1340.0" y="-3600.0" />
+      <point x="2000.0" y="-3600.0" />
       <point x="0.0" y="172.0" />
     </edge>
-    <edge source="blog.controller.ControllerAdmin" target="blog.dto.BlogTags" relationship="DEPENDENCY">
-      <point x="84.0" y="-271.5" />
-      <point x="1958.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2281.0" />
-      <point x="2835.7954545454545" y="2281.0" />
-      <point x="2835.7954545454545" y="435.0" />
-      <point x="1763.2954545454545" y="435.0" />
-      <point x="0.0" y="95.0" />
+    <edge source="blog.dao.DaoBlogTagsImplTest" target="blog.dao.DaoBlogTagsImpl" relationship="TO_ONE">
+      <point x="-60.0" y="-128.0" />
+      <point x="1200.0" y="-340.0" />
+      <point x="1240.0" y="-340.0" />
+      <point x="1240.0" y="-480.0" />
+      <point x="2392.6666666666665" y="-480.0" />
+      <point x="-67.33333333333348" y="117.5" />
     </edge>
     <edge source="blog.dao.DaoCommentImpl" target="blog.dao.DaoComment" relationship="REALIZATION">
-      <point x="68.75" y="-106.0" />
-      <point x="222.75" y="1355.0" />
-      <point x="838.7156177156173" y="1355.0" />
-      <point x="-91.66666666666663" y="83.0" />
+      <point x="60.0" y="-117.5" />
+      <point x="240.0" y="-2640.0" />
+      <point x="808.3333333333334" y="-2640.0" />
+      <point x="-91.66666666666663" y="94.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoUser" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1255.0" />
-      <point x="1181.882284382284" y="1255.0" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="1180.0" y="-2440.0" />
       <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImplTest" target="blog.dao.DaoBlogImpl" relationship="DEPENDENCY">
+      <point x="60.0" y="-128.0" />
+      <point x="1320.0" y="-360.0" />
+      <point x="1360.0" y="-360.0" />
+      <point x="1360.0" y="-460.0" />
+      <point x="880.0" y="-460.0" />
+      <point x="880.0" y="-1340.0" />
+      <point x="960.0" y="-1340.0" />
+      <point x="960.0" y="-1720.0" />
+      <point x="646.5" y="-1720.0" />
+      <point x="-53.5" y="106.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoTag" relationship="TO_ONE">
       <point x="148.66666666666674" y="-436.5" />
-      <point x="1435.166666666667" y="1365.0" />
-      <point x="1776.4079254079256" y="1365.0" />
-      <point x="1776.4079254079256" y="1325.0" />
-      <point x="2242.2954545454545" y="1325.0" />
+      <point x="1548.6666666666667" y="-2340.0" />
+      <point x="1760.0" y="-2340.0" />
+      <point x="1760.0" y="-2420.0" />
+      <point x="1880.0" y="-2420.0" />
+      <point x="1880.0" y="-2520.0" />
+      <point x="2060.0" y="-2520.0" />
       <point x="0.0" y="72.5" />
     </edge>
     <edge source="blog.dao.DaoComment" target="blog.dto.Comment" relationship="DEPENDENCY">
-      <point x="0.0" y="-83.0" />
-      <point x="930.382284382284" y="475.0" />
-      <point x="656.9079254079256" y="475.0" />
+      <point x="0.0" y="-94.5" />
+      <point x="900.0" y="-3620.0" />
+      <point x="140.0" y="-3620.0" />
       <point x="0.0" y="117.0" />
     </edge>
     <edge source="blog.controller.ControllerAdmin" target="blog.dto.Tag" relationship="DEPENDENCY">
-      <point x="84.0" y="-271.5" />
-      <point x="1958.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2331.0" />
-      <point x="2536.8333333333335" y="2281.0" />
-      <point x="3034.7954545454545" y="2281.0" />
-      <point x="3034.7954545454545" y="425.0" />
-      <point x="2242.2954545454545" y="425.0" />
+      <point x="80.0" y="-271.5" />
+      <point x="2200.0" y="-1180.0" />
+      <point x="2160.0" y="-1180.0" />
+      <point x="2160.0" y="-1840.0" />
+      <point x="2180.0" y="-1840.0" />
+      <point x="2180.0" y="-2620.0" />
+      <point x="2220.0" y="-2620.0" />
+      <point x="2220.0" y="-3620.0" />
+      <point x="2540.0" y="-3620.0" />
       <point x="0.0" y="95.0" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dao.DaoBlog" relationship="TO_ONE">
       <point x="148.66666666666674" y="-436.5" />
-      <point x="1435.166666666667" y="1365.0" />
-      <point x="1776.4079254079256" y="1365.0" />
-      <point x="1776.4079254079256" y="1295.0" />
-      <point x="1873.2954545454545" y="1295.0" />
-      <point x="1873.2954545454545" y="1235.0" />
-      <point x="1815.628787878788" y="1235.0" />
+      <point x="1548.6666666666667" y="-2340.0" />
+      <point x="1760.0" y="-2340.0" />
+      <point x="1760.0" y="-2920.0" />
+      <point x="1591.3333333333333" y="-2920.0" />
       <point x="71.33333333333326" y="83.5" />
+    </edge>
+    <edge source="blog.dao.DaoBlogTagsImplTest" target="blog.dao.DaoTagImpl" relationship="DEPENDENCY">
+      <point x="60.0" y="-128.0" />
+      <point x="1320.0" y="-360.0" />
+      <point x="2660.0" y="-360.0" />
+      <point x="2660.0" y="-1220.0" />
+      <point x="2600.0" y="-1220.0" />
+      <point x="40.0" y="95.5" />
+    </edge>
+    <edge source="blog.servicelayer.ServiceLayerImplTest" target="blog.dao.DaoUserImpl" relationship="DEPENDENCY">
+      <point x="-80.0" y="-161.0" />
+      <point x="960.0" y="-1180.0" />
+      <point x="920.0" y="-1180.0" />
+      <point x="920.0" y="-1320.0" />
+      <point x="220.0" y="-1320.0" />
+      <point x="220.0" y="-1680.0" />
+      <point x="413.5" y="-1680.0" />
+      <point x="-46.5" y="95.5" />
+    </edge>
+    <edge source="blog.servicelayer.ServiceLayerImplTest" target="blog.servicelayer.ServiceLayerImpl" relationship="TO_ONE">
+      <point x="60.0" y="-161.0" />
+      <point x="1100.0" y="-1160.0" />
+      <point x="1160.0" y="-1160.0" />
+      <point x="1160.0" y="-1240.0" />
+      <point x="1520.0" y="-1240.0" />
+      <point x="120.0" y="436.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayerImpl" target="blog.dto.Comment" relationship="DEPENDENCY">
       <point x="0.0" y="-436.5" />
-      <point x="1286.5000000000002" y="1255.0" />
-      <point x="667.0000000000001" y="1255.0" />
-      <point x="667.0000000000001" y="475.0" />
-      <point x="656.9079254079256" y="475.0" />
+      <point x="1400.0" y="-2440.0" />
+      <point x="860.0" y="-2440.0" />
+      <point x="860.0" y="-2600.0" />
+      <point x="740.0" y="-2600.0" />
+      <point x="740.0" y="-3480.0" />
+      <point x="380.0" y="-3480.0" />
+      <point x="380.0" y="-3620.0" />
+      <point x="140.0" y="-3620.0" />
       <point x="0.0" y="117.0" />
     </edge>
     <edge source="blog.dao.DaoTagImplTest" target="blog.dao.DaoTag" relationship="DEPENDENCY">
-      <point x="-47.5" y="-106.0" />
-      <point x="2399.7954545454545" y="1355.0" />
-      <point x="1627.4079254079256" y="1355.0" />
-      <point x="1627.4079254079256" y="1335.0" />
-      <point x="1695.7954545454545" y="1335.0" />
-      <point x="1695.7954545454545" y="1245.0" />
-      <point x="2182.962121212121" y="1245.0" />
-      <point x="-59.333333333333485" y="72.5" />
+      <point x="-50.0" y="-106.0" />
+      <point x="1970.0" y="-2360.0" />
+      <point x="1560.0" y="-2360.0" />
+      <point x="1560.0" y="-2440.0" />
+      <point x="1600.0" y="-2440.0" />
+      <point x="1600.0" y="-2940.0" />
+      <point x="2000.6666666666667" y="-2940.0" />
+      <point x="-59.33333333333326" y="72.5" />
+    </edge>
+    <edge source="blog.dao.DaoBlogImplTest" target="blog.dao.DaoBlogImpl" relationship="TO_ONE">
+      <point x="40.0" y="-150.0" />
+      <point x="800.0" y="-1160.0" />
+      <point x="840.0" y="-1160.0" />
+      <point x="840.0" y="-1300.0" />
+      <point x="1040.0" y="-1300.0" />
+      <point x="1040.0" y="-1700.0" />
+      <point x="753.5" y="-1700.0" />
+      <point x="53.5" y="106.5" />
+    </edge>
+    <edge source="blog.servicelayer.ServiceLayerImplTest" target="blog.dao.DaoBlogImpl" relationship="TO_ONE">
+      <point x="60.0" y="-161.0" />
+      <point x="1100.0" y="-1300.0" />
+      <point x="1040.0" y="-1300.0" />
+      <point x="1040.0" y="-1700.0" />
+      <point x="753.5" y="-1700.0" />
+      <point x="53.5" y="106.5" />
     </edge>
     <edge source="blog.controller.ControllerAssistant" target="blog.servicelayer.ServiceLayerImpl" relationship="TO_ONE">
-      <point x="74.0" y="-73.0" />
-      <point x="941.7156177156174" y="2321.0" />
-      <point x="1291.5000000000002" y="2321.0" />
-      <point x="1291.5000000000002" y="2281.0" />
-      <point x="1398.0000000000002" y="2281.0" />
-      <point x="111.5" y="436.5" />
+      <point x="80.0" y="-73.0" />
+      <point x="1840.0" y="-1240.0" />
+      <point x="1520.0" y="-1240.0" />
+      <point x="120.0" y="436.5" />
     </edge>
     <edge source="blog.servicelayer.ServiceLayer" target="blog.dto.User" relationship="DEPENDENCY">
       <point x="0.0" y="-358.5" />
-      <point x="514.0" y="465.0" />
-      <point x="1268.0454545454545" y="465.0" />
-      <point x="1268.0454545454545" y="365.0" />
-      <point x="1099.2954545454545" y="365.0" />
+      <point x="580.0" y="-3460.0" />
+      <point x="1140.0" y="-3460.0" />
+      <point x="1140.0" y="-3520.0" />
+      <point x="1180.0" y="-3520.0" />
+      <point x="1180.0" y="-3580.0" />
+      <point x="420.0" y="-3580.0" />
       <point x="0.0" y="139.0" />
     </edge>
     <edge source="blog.dao.DaoTagImplTest" target="blog.dao.DaoBlogTags" relationship="DEPENDENCY">
-      <point x="-47.5" y="-106.0" />
-      <point x="2399.7954545454545" y="1355.0" />
-      <point x="1627.4079254079256" y="1355.0" />
-      <point x="1627.4079254079256" y="1315.0" />
-      <point x="1680.7954545454545" y="1315.0" />
-      <point x="1680.7954545454545" y="1255.0" />
-      <point x="1914.9621212121215" y="1255.0" />
-      <point x="-87.33333333333326" y="61.0" />
+      <point x="-50.0" y="-106.0" />
+      <point x="1970.0" y="-2360.0" />
+      <point x="1560.0" y="-2360.0" />
+      <point x="1560.0" y="-2900.0" />
+      <point x="1719.3333333333333" y="-2900.0" />
+      <point x="-80.66666666666674" y="72.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.39666357738646896" showDependencies="true" x="1517.4999999999998" y="1608.5" />
+  <settings layout="Hierarchic Compact" zoom="0.12322274881516587" showDependencies="true" x="1350.0" y="-771.5" />
   <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>
